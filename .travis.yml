@@ -1,0 +1,7 @@
+deploy:
+  provider: heroku
+  api_key:
+    secure: nqYqzTUf3CeIlWFPqwsgoChS5f/I1CAlAhzO5BquvywwmMQqyIqsIABeVy+ez8aek/05cpt7BIR8GMGopE7UFezKdk0QIwYCDd2b56fsCcWcgOfftQMkrT3BmC+fL5yCjVYnNt8kDzMz/hu4xm/nZygWHJcwWJtgBRLHvqHNMvDig4WmjC2vyO9scANtgYIfCc9iujGxKh9wiJEueTYR19mdq7oiztYuhltnSb3Sim2bstdER7QjeaCz4hjSGFVYUwMwj7y06tcR1adEJOm8qng4ZR4FgUSMbUwLu0QlumR/S6/kfvSh+WDahtNmTK9xk73tQhfPMmtl8lCMFT0wn9ZWjfa8difvnkXVYUgAIKkxl6VPVQrE2B8g+4xh7oeno8y1YZHxziZR/0+yA3VXDNNlSXtm40TnPwsQJ/Ms33KLl5nxH89dEltTf/VTuPJYgoXp6J3VDBrb1itpnUCjyvuvo6f+ZuOUdE66Tid+M+iRPm/yMpuqrS04Qe6m2Tj58SOAq/WHDzGYM0Ku5RyIGxam+G2qcMqYc+Pe8S6d2uPlqbjPfG1s3KWeX40jLJLzyHB5Vxv1zHKhxPF7L8LwDgAqIv1GMpCPY1tn3fLbsE+qj2MNyhdxEPxXZOanPUw9uWla2B7MCJg1qDsM57ekkI+itt0XnOhdC/m+TFnsu38=
+  app: hubeert-webapp
+  on:
+    repo: SuperGrupa/huBEERt2.0-webapp
