@@ -6,7 +6,7 @@
   "scripts": {
     "build": "webpack --progress",
     "build:prod": "cross-env APP_ENVIRONMENT=production webpack -p --progress",
-    "postinstall": "$(npm bin)/typings install",
+    "postinstall": "typings install",
     "serve": "webpack-dev-server --inline --progress",
     "start": "node server/index.js"
   },
