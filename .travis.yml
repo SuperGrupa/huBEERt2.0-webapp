@@ -1,6 +1,8 @@
 language: node_js
 node_js:
   - '6.2.2'
+after_success:
+  - rm -rf node_modules src typings
 deploy:
   provider: heroku
   api_key:
