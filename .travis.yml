@@ -12,6 +12,7 @@ notifications:
 cache:
   directories:
     - node_modules
+    - server/node_modules
 deploy:
   provider: heroku
   api_key:
