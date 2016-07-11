@@ -8,3 +8,4 @@ deploy:
   app: hubeert-webapp
   on:
     repo: SuperGrupa/huBEERt2.0-webapp
+  skip_cleanup: true
