@@ -9,7 +9,9 @@ after_success:
   - rm -rf node_modules src typings tsconfig.json  typings.json  webpack.config.js
 notifications:
   email: false
-cache: npm
+cache:
+  directories:
+    - node_modules
 deploy:
   provider: heroku
   api_key:
