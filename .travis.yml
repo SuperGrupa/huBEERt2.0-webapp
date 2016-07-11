@@ -4,7 +4,7 @@ node_js:
 script:
   - npm run build:prod
 after_success:
-  - rm -rf node_modules src typings
+  - rm -rf node_modules src typings tsconfig.json  typings.json  webpack.config.js
 notifications:
   email: false
 deploy:
