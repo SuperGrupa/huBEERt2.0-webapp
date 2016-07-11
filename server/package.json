@@ -1,0 +1,9 @@
+{
+  "name": "Production_server",
+  "version": "1.0.0",
+  "dependencies": {
+    "compression": "^1.5.0",
+    "cors": "^2.7.1",
+    "express": "^4.12.4"
+  }
+}
