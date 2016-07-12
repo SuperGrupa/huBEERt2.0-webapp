@@ -28,6 +28,9 @@ module.exports = {
         environment: JSON.stringify(process.env.APP_ENVIRONMENT || 'development')
       }
     })
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true
+  }
 
 };

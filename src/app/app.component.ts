@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
-  selector: 'my-app',
+  selector: 'app',
   template: require('./app.component.html'),
-  styles: [require('./app.component.css')]
+  styles: [require('./app.component.css')],
+  directives: [ROUTER_DIRECTIVES],
 })
-export class AppComponent { }
+
+export class AppComponent {
+  title: 'huBEERt';
+}
