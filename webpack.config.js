@@ -13,11 +13,12 @@ module.exports = {
       {test: /\.ts$/, loader: 'ts'},
       {test: /\.html$/, loader: 'raw'},
       {test: /\.css$/, loader: 'raw'},
-      {test: /favicon\.png/, loader: 'static-loader'}
+      {test: /\.scss$/, loader: 'raw!sass'},
+      {test: /assets\/img\/.*\.png/, loader: 'static-loader'}
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.ts', '.html', '.css']
+    extensions: ['', '.js', '.ts', '.html', '.css', '.scss']
   },
   plugins: [
     new HtmlWebpackPlugin({
