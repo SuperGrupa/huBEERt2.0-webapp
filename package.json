@@ -27,6 +27,7 @@
     "cross-env": "1.0.8",
     "html-webpack-plugin": "2.21.0",
     "raw-loader": "0.5.1",
+    "static-loader": "^0.1.8",
     "ts-loader": "0.8.2",
     "typescript": "1.8.10",
     "typings": "1.2.0",

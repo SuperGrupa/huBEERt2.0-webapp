@@ -1,6 +1,7 @@
 import 'core-js';
 import 'reflect-metadata';
 import 'zone.js/dist/zone';
+import './assets/img/favicon.ico?output=favicon.ico';
 
 import { enableProdMode } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';
