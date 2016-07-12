@@ -1,39 +1,31 @@
-var express= require('express');
-var compression = require('compression');
-var path = require('path');
-var cors = require('cors');
+var express = require('express'),
+    path = require('path'),
+    fs = require('fs');
 
 var app = express();
+var staticRoot = path.join(__dirname, './../dist/');
 
-var static_path = path.join(__dirname, './../dist');
+app.set('port', (process.env.PORT || 5000));
 
-app.enable('trust proxy');
+app.use(express.static(staticRoot));
 
-app.use(compression());
+app.use(function(req, res, next){
+    // if the request is not html then move along
+    var accept = req.accepts('html', 'json', 'xml');
+    if(accept !== 'html'){
+        return next();
+    }
 
-app.route('/').get(function(req, res) {
-    res.header('Cache-Control', "max-age=60, must-revalidate, private");
-    res.sendFile('index.html', {
-        root: static_path
-    });
+    // if the request has a '.' assume that it's for a file, move along
+    var ext = path.extname(req.path);
+    if (ext !== ''){
+        return next();
+    }
+
+    fs.createReadStream(staticRoot + 'index.html').pipe(res);
+
 });
 
-function nocache(req, res, next) {
-  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-  res.header('Expires', '-1');
-  res.header('Pragma', 'no-cache');
-  next();
-}
-
-app.use('/', express.static(static_path, {
-    maxage: 31557600
-}));
-
-var server = app.listen(process.env.PORT || 5000, function () {
-
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
-
+app.listen(app.get('port'), function() {
+    console.log('app running on port', app.get('port'));
 });
