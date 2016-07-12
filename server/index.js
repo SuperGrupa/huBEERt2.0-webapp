@@ -11,7 +11,7 @@ app.enable('trust proxy');
 
 app.use(compression());
 
-app.route('/').get(function(req, res) {
+app.route('/*').get(function(req, res) {
     res.header('Cache-Control', "max-age=60, must-revalidate, private");
     res.sendFile('index.html', {
         root: static_path
