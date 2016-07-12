@@ -1,18 +1,16 @@
 import { provideRouter, RouterConfig } from '@angular/router';
-import { SearchComponent } from './search/search.component';
 import { AppComponent } from './app.component';
 
+import { SEARCH_ROUTER_PROVIDERS } from './search/search.routes';
+
 const routes: RouterConfig = [
-  {
-    path: 'search',
-    component: SearchComponent
-  },
+  ...SEARCH_ROUTER_PROVIDERS,
   {
     path: '',
     redirectTo: '/search'
-  },
+  }
 ];
 
-export const APP_ROUTER_PROVIDERS = [
+export const ROUTER_PROVIDERS = [
   provideRouter(routes)
 ];
