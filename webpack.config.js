@@ -13,7 +13,7 @@ module.exports = {
       {test: /\.ts$/, loader: 'ts'},
       {test: /\.html$/, loader: 'raw'},
       {test: /\.css$/, loader: 'raw'},
-      {test: /\.ico$/, loader: 'static-loader'}
+      {test: /favicon\.png/, loader: 'static-loader'}
     ]
   },
   resolve: {
