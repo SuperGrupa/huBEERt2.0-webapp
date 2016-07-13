@@ -1,0 +1,13 @@
+@import '../../assets/styles/main';
+
+label {
+  padding-top: 7px;
+}
+
+button {
+  color: $text-color;
+  background-color: $bg-dark;
+  &:hover {
+    color: $text-color;
+  }
+}
