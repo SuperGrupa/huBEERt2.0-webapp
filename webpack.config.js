@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var path = require('path');
 
 module.exports = {
 
@@ -14,11 +15,14 @@ module.exports = {
       {test: /\.html$/, loader: 'raw'},
       {test: /\.css$/, loader: 'raw'},
       {test: /\.scss$/, loader: 'raw!sass'},
-      {test: /assets\/img\/.*\.png/, loader: 'static-loader'}
+      {test: /assets\/img\/.*/, loader: 'file-loader?name=/assets/img/[name].[ext]'}
     ]
   },
   resolve: {
-    extensions: ['', '.js', '.ts', '.html', '.css', '.scss']
+    extensions: ['', '.js', '.ts', '.html', '.css', '.scss'],
+    alias: {
+      "assets/img": path.join(__dirname, "./src/assets/img")
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({

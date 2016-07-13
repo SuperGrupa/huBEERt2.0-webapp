@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import './../../../assets/img/logo.png?output=logo.png';
+import 'assets/img/logo.png';
 
 @Component({
   selector: 'app-header',
