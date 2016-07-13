@@ -3,6 +3,8 @@
 .app-header {
   background: $bg-dark;
   padding: 0 3%;
+  border: 0;
+  margin: 0;
 
   nav ul li a {
     color: $text-color;
@@ -12,7 +14,7 @@
   }
 
   .navbar-brand {
-    padding: 3px 0 0;
+    padding: 2px 0 0;
   }
 
   .navbar-header {

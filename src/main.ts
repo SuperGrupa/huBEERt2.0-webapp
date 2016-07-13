@@ -3,6 +3,7 @@ import 'reflect-metadata';
 import 'zone.js/dist/zone';
 import 'assets/img/favicon.png';
 import './assets/styles/main.scss';
+import './assets/js/main.js';
 
 import { enableProdMode } from '@angular/core';
 import { bootstrap } from '@angular/platform-browser-dynamic';

@@ -7,7 +7,6 @@ import { FooterComponent } from './common/footer/footer.component';
 @Component({
   selector: 'app',
   template: require('./app.component.html'),
-  styles: [require('./app.component.scss')],
   directives: [
     ROUTER_DIRECTIVES,
     HeaderComponent,

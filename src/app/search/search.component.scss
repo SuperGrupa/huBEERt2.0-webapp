@@ -1,13 +1,20 @@
 @import '../../assets/styles/main';
 
-label {
-  padding-top: 7px;
-}
+.search {
+  height: 100%;
+  padding-top: 150px;
+  background: url('/assets/img/beer.jpg') 50% 50%;
 
-button {
-  color: $text-color;
-  background-color: $bg-dark;
-  &:hover {
-    color: $text-color;
+  label {
+    padding-top: 7px;
   }
+
+  button {
+    color: $text-color;
+    background-color: $bg-dark;
+    &:hover {
+      color: $text-color;
+    }
+  }
+
 }
