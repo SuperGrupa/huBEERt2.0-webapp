@@ -13,7 +13,6 @@ module.exports = {
     loaders: [
       {test: /\.ts$/, loader: 'ts'},
       {test: /\.html$/, loader: 'raw'},
-      {test: /\.css$/, loader: 'raw'},
       {test: /\.scss$/, loader: 'raw!sass'},
       {test: /assets\/img\/.*/, loader: 'file-loader?name=/assets/img/[name].[ext]'}
     ]
@@ -21,7 +20,7 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.ts', '.html', '.css', '.scss'],
     alias: {
-      "assets/img": path.join(__dirname, "./src/assets/img")
+      "assets/img":    path.join(__dirname, "./src/assets/img")
     }
   },
   plugins: [

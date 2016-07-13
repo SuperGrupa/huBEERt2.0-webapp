@@ -1,12 +1,21 @@
+@import '../../../assets/styles/main';
+
 .app-header {
-  background: #3F3939;
+  background: $bg-dark;
   padding: 0 3%;
 
   nav ul li a {
-    color: #e5e5e5;
+    color: $text-color;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .navbar-brand {
     padding: 3px 0 0;
+  }
+
+  .navbar-header {
+    @media screen and (max-width: 767px) { margin: 10px 0; }
   }
 }
