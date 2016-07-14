@@ -1,6 +1,9 @@
 @import '../../../assets/styles/main';
 
 .app-footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   background: $bg-dark;
   color: $text-color;
   text-align: center;

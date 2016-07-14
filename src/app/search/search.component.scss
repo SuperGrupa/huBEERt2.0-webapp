@@ -1,13 +1,11 @@
 @import '../../assets/styles/main';
 
 .search {
-  height: 100%;
-  padding-top: 150px;
-  background: url('/assets/img/beer.jpg') 50% 50%;
+  padding-top: 200px;
   background-size: cover;
 
   label {
-    padding-top: 7px;
+    padding: 7px 0 0 15px;
   }
 
   button {
