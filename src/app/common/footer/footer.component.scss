@@ -8,14 +8,20 @@
   color: $text-color;
   text-align: center;
 
+  a { color: $text-color;  }
+
   p {
     font: 0.9em sans-serif;
     margin: 1px 0 1px;
     line-height: 20px;
     span {
       display: inline-block;
-      a   { color: $text-color;  }
       img { padding-bottom: 3px; }
     }
+  }
+
+  a.freepik {
+    position: absolute;
+    right: 10px;
   }
 }
