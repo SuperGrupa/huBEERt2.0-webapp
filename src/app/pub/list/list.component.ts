@@ -5,6 +5,7 @@ import { PubService } from '../pub.service';
 @Component({
   selector: 'pub-list',
   template: require('./list.component.html'),
+  styles: [require('./list.component.scss')],
   providers: [PubService],
 })
 
@@ -24,12 +25,4 @@ export class PubListComponent implements OnInit {
                        pubs => this.pubs = pubs,
                        error => this.errorMessage = <any>error);
   }
-
-  // addHero (name: string) {
-  //   if (!name) { return; }
-  //   this.heroService.addHero(name)
-  //                    .subscribe(
-  //                      hero  => this.heroes.push(hero),
-  //                      error =>  this.errorMessage = <any>error);
-  // }
 }

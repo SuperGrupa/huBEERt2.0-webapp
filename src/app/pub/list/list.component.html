@@ -1,17 +1,15 @@
-<div class="container">
-  <div class="row">
-    <div class="list-header">
-      <h1>Wyniki wyszukiwania</h1>
-    </div>
+<div class="container pub-list">
+  <div class="list-header text-center">
+    <h2>Wyniki wyszukiwania</h2>
   </div>
   <div class="row">
     <table class="table table-hover">
       <tbody>
         <tr *ngFor="let pub of pubs">
-          <td><p>MINIATURKA</p></td>
-          <td>
-            <h3>{{pub.name}}</h3>
-          </td>
+          <td class="col-sm-1 thumb"><p>MINIATURKA</p></td>
+          <td class="col-xs-6 col-sm-2"><h3>{{pub.name}}</h3></td>
+          <td class="col-sm-7 offer">Oferta</td>
+          <td class="col-xs-6 col-sm-2">Ocena</td>
         </tr>
       </tbody>
     </table>
