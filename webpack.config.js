@@ -2,6 +2,8 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 
+environment = process.env.APP_ENVIRONMENT || 'development';
+
 module.exports = {
 
   entry: './src/main.ts',
@@ -20,7 +22,8 @@ module.exports = {
   resolve: {
     extensions: ['', '.js', '.ts', '.html', '.css', '.scss'],
     alias: {
-      "assets/img":    path.join(__dirname, "./src/assets/img")
+      "assets/img": path.join(__dirname, "./src/assets/img"),
+      "config":     path.join(__dirname, './src/config', environment)
     }
   },
   plugins: [
@@ -29,7 +32,7 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       app: {
-        environment: JSON.stringify(process.env.APP_ENVIRONMENT || 'development')
+        environment: JSON.stringify(environment)
       }
     })
   ],

@@ -2,15 +2,14 @@ import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Pub }            from './pub';
 import { Observable }     from 'rxjs/Observable';
+import Config from 'config';
 
 @Injectable()
 export class PubService {
-  private pubsUrl = 'http://localhost:3000/pubs';
-
   constructor (private http: Http) { }
 
   getPubs(filter: string): Observable<Pub[]> {
-    return this.http.get(this.pubsUrl)
+    return this.http.get(Config.url.pubs())
                     .map(this.extractData)
                     .catch(this.handleError);
   }
