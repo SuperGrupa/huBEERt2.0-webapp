@@ -1,0 +1,33 @@
+@import '../../../assets/styles/main';
+
+$list-border: rgba(140, 140, 140, 0.5);
+$list-bg: rgba(220, 200, 20, 0.75);
+
+.pub-list {
+  .list-header, .list-table {
+    background-color: $list-bg;
+  }
+
+  .list-header {
+    border: 3px solid $list-border;
+    border-radius: 15px;
+  }
+
+  .list-table {
+    margin-top: 20px;
+    border: 3px solid $list-border;
+
+    td {
+      border-color: white;
+    }
+
+    tr:hover {
+      background-color: white;
+      cursor: pointer;
+    }
+  }
+
+  .thumb, .offer {
+    @media screen and (max-width: $xs-max) { display: none; }
+  }
+}

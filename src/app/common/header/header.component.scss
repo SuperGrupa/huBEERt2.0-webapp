@@ -18,6 +18,6 @@
   }
 
   .navbar-header {
-    @media screen and (max-width: 767px) { margin: 10px 0; }
+    @media screen and (max-width: $xs-max) { margin: 10px 0; }
   }
 }
