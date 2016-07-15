@@ -9,7 +9,7 @@ export class PubService {
 
   constructor (private http: Http) { }
 
-  getPubs(): Observable<Pub[]> {
+  getPubs(filter: string): Observable<Pub[]> {
     return this.http.get(this.pubsUrl)
                     .map(this.extractData)
                     .catch(this.handleError);

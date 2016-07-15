@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+
 import { Pub } from '../pub';
 import { PubService } from '../pub.service';
 
@@ -9,18 +11,32 @@ import { PubService } from '../pub.service';
   providers: [PubService],
 })
 
-export class PubListComponent implements OnInit {
+export class PubListComponent implements OnInit, OnDestroy {
   errorMessage: string;
   pubs: Pub[];
+  subscription: any;
 
-  constructor (private pubService: PubService) { }
+  constructor (private pubService: PubService,
+               private router: Router,
+               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.getPubs();
+    this.subscription = this.route.params.subscribe(params => {
+      let query = params['q'];
+      this.getPubs(query);
+    });
   }
 
-  getPubs() {
-    this.pubService.getPubs()
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
+  }
+
+  goToPub(id: number) {
+    this.router.navigate(['/pub', id]);
+  }
+
+  getPubs(query: string) {
+    this.pubService.getPubs(query)
                      .subscribe(
                        pubs => this.pubs = pubs,
                        error => this.errorMessage = <any>error);
