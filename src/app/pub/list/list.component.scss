@@ -4,24 +4,21 @@ $list-border: rgba(140, 140, 140, 0.5);
 $list-bg: rgba(220, 200, 20, 0.75);
 
 .pub-list {
+  margin-top: 30px;
+
   .list-header, .list-table {
     background-color: $list-bg;
   }
 
-  .list-header {
-    border: 3px solid $list-border;
-    border-radius: 15px;
-  }
-
   .list-table {
     margin-top: 20px;
-    border: 3px solid $list-border;
+    border-style: hidden;
 
     td {
-      border-color: white;
+      border-top: 1px solid white;
     }
 
-    tr:hover {
+    tr:hover, tr:active {
       background-color: white;
       cursor: pointer;
     }
