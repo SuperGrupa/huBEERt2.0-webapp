@@ -4,7 +4,7 @@ $list-border: #ddd;
 $list-bg: rgba(220, 200, 20, 0.75);
 
 .pub-list {
-  margin-top: 30px;
+  margin: 30px auto 60px auto;
 
   .list-header, .list-table {
     background-color: $list-bg;
