@@ -7,12 +7,9 @@
     padding: 7px 0 0 15px;
   }
 
-  a {
+  button {
     color: $text-color;
     background-color: $bg-dark;
-    &:hover {
-      color: $text-color;
-    }
   }
 
 }

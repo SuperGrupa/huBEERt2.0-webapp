@@ -3,14 +3,19 @@
     <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 text-left">
       <form class="form-horizontal">
         <div class="form-group">
-          <label for="city" class="col-xs-5">Wybierz miasto:</label>
-          <div class="col-xs-7">
+          <label for="city" class="col-xs-4">Miasto:</label>
+          <div class="col-xs-8">
             <select class="form-control" id="city">
               <option>Poznań</option>
             </select>
           </div>
         </div>
-        <a [routerLink]="['/results']" routerLinkActive="active" type="submit" class="btn col-xs-12">Szukaj</a>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <input [(ngModel)]="query" type="text" class="form-control" placeholder="Search">
+          </div>
+        </div>
+        <button type="button" class="btn col-xs-12" (click)="search()">Szukaj</button>
       </form>
     </div>
   </div>
