@@ -1,8 +1,8 @@
 import Config from 'config';
 
 const Url = {
-  pubs: function() {
-    return Config.server.__url() + 'pubs';
+  pubs: function(page: number, filter: string) {
+    return Config.server.__url() + 'pubs?page=' + page + '&q=' + filter;
   }
 };
 

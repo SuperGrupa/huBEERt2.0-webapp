@@ -23,7 +23,8 @@ export class PubListComponent implements OnInit, OnDestroy {
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {
       let query = params['q'];
-      this.getPubs(query);
+      let page = +params['page'];
+      this.getPubs(page, query);
     });
   }
 
@@ -35,10 +36,13 @@ export class PubListComponent implements OnInit, OnDestroy {
     this.router.navigate(['/pub', id]);
   }
 
-  getPubs(query: string) {
-    this.pubService.getPubs(query)
-                     .subscribe(
-                       pubs => this.pubs = pubs,
-                       error => this.errorMessage = <any>error);
+  getPubs(page: number, query: string) {
+    this.pubService.getPubs(page, query).subscribe(
+      data => {
+        this.pubs = data.pubs;
+        this.pubs_count = data.pubs_count;
+      },
+      error => this.errorMessage = <any>error
+    );
   }
 }
