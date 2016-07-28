@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PaginatePipe, PaginationControlsCmp, PaginationService } from 'ng2-pagination';
 
 import { Pub } from '../pub';
 import { PubService } from '../pub.service';
@@ -8,12 +9,17 @@ import { PubService } from '../pub.service';
   selector: 'pub-list',
   template: require('./list.component.html'),
   styles: [require('./list.component.scss')],
-  providers: [PubService],
+  directives: [PaginationControlsCmp],
+  pipes: [PaginatePipe],
+  providers: [PubService, PaginationService],
 })
 
 export class PubListComponent implements OnInit, OnDestroy {
   errorMessage: string;
   pubs: Pub[];
+  total_pubs: number;
+  current_page: number = 1;
+  query: string;
   subscription: any;
 
   constructor (private pubService: PubService,
@@ -22,9 +28,9 @@ export class PubListComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {
-      let query = params['q'];
-      let page = +params['page'];
-      this.getPubs(page, query);
+      this.query = params['q'];
+      this.current_page = +params['page'];
+      this.getPubs();
     });
   }
 
@@ -36,11 +42,15 @@ export class PubListComponent implements OnInit, OnDestroy {
     this.router.navigate(['/pub', id]);
   }
 
-  getPubs(page: number, query: string) {
-    this.pubService.getPubs(page, query).subscribe(
+  pageChanged(page_number: number) {
+    this.router.navigate(['/results', { page: page_number, q: this.query }]);
+  }
+
+  getPubs() {
+    this.pubService.getPubs(this.current_page, this.query).subscribe(
       data => {
         this.pubs = data.pubs;
-        this.pubs_count = data.pubs_count;
+        this.total_pubs = data.total_pubs;
       },
       error => this.errorMessage = <any>error
     );
