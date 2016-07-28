@@ -23,7 +23,8 @@ module.exports = {
     extensions: ['', '.js', '.ts', '.html', '.css', '.scss'],
     alias: {
       "assets": path.join(__dirname, "./assets"),
-      "config": path.join(__dirname, './src/config', environment)
+      "config": path.join(__dirname, './src/config', environment),
+      "urls":   path.join(__dirname, './src/url/definitions')
     }
   },
   plugins: [

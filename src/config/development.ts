@@ -1,12 +1,8 @@
 const Config = {
-  url: {
-    __origin: function() {
+  server: {
+    __url: function() {
       return 'http://localhost:3000/';
     },
-
-    pubs: function() {
-      return this.__origin() + 'pubs';
-    }
   }
 };
 

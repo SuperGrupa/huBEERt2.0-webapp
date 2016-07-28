@@ -1,12 +1,8 @@
 const Config = {
-  url: {
-    __origin: function() {
+  server: {
+    __url: function() {
       return 'http://hubeert-server.herokuapp.com/';
     },
-
-    pubs: function() {
-      return this.__origin() + 'pubs';
-    }
   }
 };
 
