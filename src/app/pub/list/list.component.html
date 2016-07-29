@@ -5,9 +5,7 @@
   <div class="row">
     <table class="list-table table table-hover">
       <tbody>
-        <tr *ngFor="let pub of pubs | paginate: {
-            totalItems: total_pubs, currentPage: current_page, itemsPerPage: 10
-          }"
+        <tr *ngFor="let pub of pubs"
             (click)="goToPub(pub.id)">
           <td class="col-sm-1 thumb"><p>MINIATURKA</p></td>
           <td class="col-xs-6 col-sm-3">
@@ -21,6 +19,8 @@
         </tr>
       </tbody>
     </table>
-    <pagination-controls (pageChange)='pageChanged($event)' autoHide="true"></pagination-controls>
+    <pagination [total_items]="total_pubs"
+                [items_per_page]="10"
+                [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>
   </div>
 </div>

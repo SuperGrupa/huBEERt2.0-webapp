@@ -1,0 +1,9 @@
+.pagination {
+  li {
+    cursor: pointer;
+
+    &.disabled {
+      cursor: not-allowed;
+    }
+  }
+}

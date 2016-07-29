@@ -1,17 +1,16 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PaginatePipe, PaginationControlsCmp, PaginationService } from 'ng2-pagination';
 
 import { Pub } from '../pub';
 import { PubService } from '../pub.service';
+import { Pagination } from '../../common/pagination/pagination.component';
 
 @Component({
   selector: 'pub-list',
   template: require('./list.component.html'),
   styles: [require('./list.component.scss')],
-  directives: [PaginationControlsCmp],
-  pipes: [PaginatePipe],
-  providers: [PubService, PaginationService],
+  directives: [Pagination],
+  providers: [PubService],
 })
 
 export class PubListComponent implements OnInit, OnDestroy {

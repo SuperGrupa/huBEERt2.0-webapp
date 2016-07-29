@@ -1,0 +1,19 @@
+<nav aria-label="Page navigation" class="text-center">
+  <ul class="pagination">
+    <li [class.disabled]="current_page === 1">
+      <span (click)="previous()" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </span>
+    </li>
+    <li *ngFor="let page of [].constructor(pages_count); let i = index"
+        [class.active]="current_page === i + 1"
+    >
+      <span (click)="clicked(i + 1)">{{ i + 1 }}</span>
+    </li>
+    <li [class.disabled]="current_page === pages_count">
+      <span (click)="next()" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </span>
+    </li>
+  </ul>
+</nav>
