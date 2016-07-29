@@ -1,9 +1,22 @@
-.pagination {
-  li {
-    cursor: pointer;
+@import '../styles/main';
 
-    &.disabled {
-      cursor: not-allowed;
+nav {
+  margin-bottom: 60px;
+
+  .pagination {
+    li {
+      cursor: pointer;
+
+      &.disabled { cursor: not-allowed; }
+      &.active span { background-color: white; }
+
+      span {
+        z-index: 0;
+        background-color: $bg-yellow;
+        border-color: white;
+      }
+
+      &:not(.disabled) span { color: $text-dark; }
     }
   }
 }

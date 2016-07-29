@@ -1,10 +1,10 @@
 @import '../../common/styles/main';
 
-$list-border: #ddd;
-$list-bg: rgba(220, 200, 20, 0.75);
+$list-border: $border-grey;
+$list-bg: $bg-yellow;
 
 .pub-list {
-  margin: 30px auto 60px auto;
+  margin: 30px auto 0 auto;
 
   .list-header, .list-table {
     background-color: $list-bg;
