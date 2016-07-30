@@ -1,0 +1,37 @@
+@import '../../common/styles/main';
+
+.pub-show {
+  background-color: $bg-yellow;
+  border: 2px solid $border-grey;
+
+  .pub-header {
+    .subscribe { margin-top: 20px; }
+  }
+
+  .pub-details {
+    margin-top: 30px;
+
+    .main-picture {
+      background-color: white;
+      height: 200px;
+    }
+
+    .address-and-contact {
+      margin-top: 20px;
+    }
+
+    .sections {
+      .nav {
+        margin-top: 30px;
+        li {
+          a {
+            color: $text-dark;
+          }
+          &.active a {
+            background-color: white;
+          }
+        }
+      }
+    }
+  }
+}

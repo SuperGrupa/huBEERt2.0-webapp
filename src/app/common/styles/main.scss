@@ -6,3 +6,10 @@ $bg-yellow: rgba(220, 200, 20, 0.75);
 $border-grey: #ddd;
 
 $xs-max: 767px;
+
+button {
+  color: $text-color;
+  background-color: $bg-dark;
+
+  &:hover { color: $text-color }
+}

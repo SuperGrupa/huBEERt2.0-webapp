@@ -1,0 +1,45 @@
+<div class="container pub-show">
+  <div class="row pub-header">
+    <div class="col-xs-12 col-sm-1">
+      <h2>{{pub.rating}}</h2>
+    </div>
+    <div class="col-xs-12 col-sm-9">
+      <h1>{{pub.name}}</h1>
+    </div>
+    <div class="col-xs-12 col-sm-2 subscribe">
+      <button type="button" class="btn">Subskrybuj</button>
+    </div>
+  </div>
+  <div class="row pub-details">
+    <div class="col-xs-12 col-sm-4">
+      <div class="main-picture"></div>
+      <div class="address-and-contact">
+        <div class="row">
+          <p class="col-xs-4">Adres:</p>
+          <p class="col-xs-8">{{pub.address}}</p>
+        </div>
+        <div class="row">
+          <p class="col-xs-4">Email:</p>
+          <p class="col-xs-8">{{pub.email || "brak"}}</p>
+        </div>
+        <div class="row">
+          <p class="col-xs-4">Telefon:</p>
+          <p class="col-xs-8">{{pub.phone || "brak"}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <div class="description">{{pub.description}}</div>
+      <div class="sections">
+        <ul class="nav nav-pills">
+          <li role="presentation" class="active"><a>Oferta</a></li>
+          <li role="presentation"><a>Wydarzenia</a></li>
+          <li role="presentation"><a>Opinie</a></li>
+        </ul>
+        <pub-show-offer    *ngIf="section === 'offer'"></pub-show-offer>
+        <pub-show-events   *ngIf="section === 'events'"></pub-show-events>
+        <pub-show-comments *ngIf="section === 'comments'"></pub-show-comments>
+      </div>
+    </div>
+  </div>
+</div>
