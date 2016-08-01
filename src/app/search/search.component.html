@@ -5,8 +5,10 @@
         <div class="form-group">
           <label for="city" class="col-xs-4">Miasto:</label>
           <div class="col-xs-8">
-            <select class="form-control" id="city">
-              <option>Poznań</option>
+            <select class="form-control" [(ngModel)]="selected_city">
+              <option *ngFor="let city of cities" [value]="city.name">
+                {{city.name}}
+              </option>
             </select>
           </div>
         </div>
