@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { Pub } from '../pub';
+import { Pub } from '../model/pub';
 import { PubService } from '../pub.service';
 import { Pagination } from '../../common/pagination/pagination.component';
 
@@ -14,8 +14,8 @@ import { Pagination } from '../../common/pagination/pagination.component';
 })
 
 export class PubListComponent implements OnInit, OnDestroy {
-  errorMessage: string;
-  pubs: Pub[];
+  error_message: string;
+  pubs: Pub.General[];
   total_pubs: number;
   current_page: number = 1;
   query: string;
@@ -51,7 +51,7 @@ export class PubListComponent implements OnInit, OnDestroy {
         this.pubs = data.pubs;
         this.total_pubs = data.total_pubs;
       },
-      error => this.errorMessage = <any>error
+      error => this.error_message = <any>error
     );
   }
 }

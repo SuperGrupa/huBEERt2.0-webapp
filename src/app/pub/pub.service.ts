@@ -1,6 +1,6 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { PubList }        from './list/pub-list';
+import { Pub }            from './model/pub';
 import { Observable }     from 'rxjs/Observable';
 import Url from 'urls';
 
@@ -8,8 +8,14 @@ import Url from 'urls';
 export class PubService {
   constructor (private http: Http) { }
 
-  getPubs(page: number, filter: string): Observable<PubList> {
+  getPubs(page: number, filter: string): Observable<Pub.List> {
     return this.http.get(Url.pubs(page, filter))
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  getPub(id: number): Observable<Pub.Detail> {
+    return this.http.get(Url.pub(id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }

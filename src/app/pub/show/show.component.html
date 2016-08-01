@@ -1,12 +1,12 @@
-<div class="container pub-show">
+<div *ngIf="pub" class="container pub-show">
   <div class="row pub-header">
     <div class="col-xs-12 col-sm-1">
-      <h2>{{pub.rating}}</h2>
+      <h2>{{ (pub.rating | number: '.1-1') || "brak" }}</h2>
     </div>
     <div class="col-xs-12 col-sm-9">
       <h1>{{pub.name}}</h1>
     </div>
-    <div class="col-xs-12 col-sm-2 subscribe">
+    <div *ngIf="currentUser()" class="col-xs-12 col-sm-2 subscribe">
       <button type="button" class="btn">Subskrybuj</button>
     </div>
   </div>
@@ -34,7 +34,7 @@
         <ul class="nav nav-pills">
           <li role="presentation" class="active"><a>Oferta</a></li>
           <li role="presentation"><a>Wydarzenia</a></li>
-          <li role="presentation"><a>Opinie</a></li>
+          <li role="presentation"><a>Opinie ({{ pub.comments }})</a></li>
         </ul>
         <pub-show-offer    *ngIf="section === 'offer'"></pub-show-offer>
         <pub-show-events   *ngIf="section === 'events'"></pub-show-events>
