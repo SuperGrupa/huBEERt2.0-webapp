@@ -19,6 +19,7 @@ export class PubListComponent implements OnInit, OnDestroy {
   total_pubs: number;
   current_page: number = 1;
   query: string;
+  city: string;
   subscription: any;
 
   constructor (private pubService: PubService,
@@ -29,6 +30,7 @@ export class PubListComponent implements OnInit, OnDestroy {
     this.subscription = this.route.params.subscribe(params => {
       this.query = params['q'];
       this.current_page = +params['page'];
+      this.city = params['city'];
       this.getPubs();
     });
   }
@@ -42,11 +44,11 @@ export class PubListComponent implements OnInit, OnDestroy {
   }
 
   pageChanged(page_number: number) {
-    this.router.navigate(['/results', { page: page_number, q: this.query }]);
+    this.router.navigate(['/results', { city: this.city, page: page_number, q: this.query }]);
   }
 
   getPubs() {
-    this.pubService.getPubs(this.current_page, this.query).subscribe(
+    this.pubService.getPubs(this.current_page, this.query, this.city).subscribe(
       data => {
         this.pubs = data.pubs;
         this.total_pubs = data.total_pubs;

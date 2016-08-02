@@ -16,7 +16,7 @@ export class Pagination implements OnChanges {
 
   ngOnChanges() {
     if (this.total_items && this.items_per_page) {
-      this.pages_count = Math.floor(this.total_items / this.items_per_page) + 1;
+      this.pages_count = Math.ceil(this.total_items / this.items_per_page);
     }
   }
 

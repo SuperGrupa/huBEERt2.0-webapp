@@ -1,21 +1,15 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
-import { Pub }            from './model/pub';
 import { Observable }     from 'rxjs/Observable';
+import { City } from '../model/city';
 import Url from 'urls';
 
 @Injectable()
-export class PubService {
+export class CityService {
   constructor (private http: Http) { }
 
-  getPubs(page: number, filter: string, city: number): Observable<PubList> {
-    return this.http.get(Url.pubs(page, filter, city))
-                    .map(this.extractData)
-                    .catch(this.handleError);
-  }
-
-  getPub(id: number): Observable<Pub.Detail> {
-    return this.http.get(Url.pub(id))
+  getCities(): Observable<City[]> {
+    return this.http.get(Url.cities())
                     .map(this.extractData)
                     .catch(this.handleError);
   }
