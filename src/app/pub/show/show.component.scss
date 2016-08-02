@@ -5,7 +5,14 @@
   border: 2px solid $border-grey;
 
   .pub-header {
-    .subscribe { margin-top: 20px; }
+    .name {
+      @media screen and (max-width: $xs-max) { text-align: center; }
+    }
+
+    .subscribe {
+      margin-top: 20px;
+      @media screen and (max-width: $xs-max) { width: 100%; }
+    }
   }
 
   .pub-details {
@@ -17,7 +24,18 @@
     }
 
     .address-and-contact {
-      margin-top: 20px;
+      margin: 20px auto;
+      word-wrap: break-word;
+
+      .address, .email, .phone {
+        padding: 0 15px;
+
+        width: 100%;
+        p {
+          @media screen and (min-width: $sm-max) { display: inline-block; }
+          strong { display: inline-block; width: 60px; }
+        }
+      }
     }
 
     .sections {
