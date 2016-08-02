@@ -8,8 +8,8 @@ import Url from 'urls';
 export class PubService {
   constructor (private http: Http) { }
 
-  getPubs(page: number, filter: string): Observable<PubList> {
-    return this.http.get(Url.pubs(page, filter))
+  getPubs(page: number, filter: string, city: number): Observable<PubList> {
+    return this.http.get(Url.pubs(page, filter, city))
                     .map(this.extractData)
                     .catch(this.handleError);
   }
