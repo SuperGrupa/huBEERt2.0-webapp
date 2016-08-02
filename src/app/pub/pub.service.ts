@@ -8,7 +8,7 @@ import Url from 'urls';
 export class PubService {
   constructor (private http: Http) { }
 
-  getPubs(page: number, filter: string, city: number): Observable<PubList> {
+  getPubs(page: number, filter: string, city: string): Observable<Pub.List> {
     return this.http.get(Url.pubs(page, filter, city))
                     .map(this.extractData)
                     .catch(this.handleError);
@@ -16,6 +16,12 @@ export class PubService {
 
   getPub(id: number): Observable<Pub.Detail> {
     return this.http.get(Url.pub(id))
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  getComments(pub_id: number): Observable<Comment[]> {
+    return this.http.get(Url.comments(pub_id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }

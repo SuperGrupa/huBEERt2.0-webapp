@@ -32,13 +32,19 @@
       <div class="description">{{pub.description}}</div>
       <div class="sections">
         <ul class="nav nav-pills">
-          <li role="presentation" class="active"><a>Oferta</a></li>
-          <li role="presentation"><a>Wydarzenia</a></li>
-          <li role="presentation"><a>Opinie ({{ pub.comments }})</a></li>
+          <li role="presentation" [class.active]="section === 'offer'">
+            <a>Oferta</a>
+          </li>
+          <li role="presentation" [class.active]="section === 'events'">
+            <a>Wydarzenia</a>
+          </li>
+          <li role="presentation" [class.active]="section === 'comments'">
+            <a (click)="showComments()">Opinie ({{ pub.comments }})</a>
+          </li>
         </ul>
         <pub-show-offer    *ngIf="section === 'offer'"></pub-show-offer>
         <pub-show-events   *ngIf="section === 'events'"></pub-show-events>
-        <pub-show-comments *ngIf="section === 'comments'"></pub-show-comments>
+        <pub-show-comments *ngIf="section === 'comments'" [pub_id]="pub.id"></pub-show-comments>
       </div>
     </div>
   </div>

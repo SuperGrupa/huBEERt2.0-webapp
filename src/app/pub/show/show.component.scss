@@ -44,6 +44,7 @@
         li {
           a {
             color: $text-dark;
+            &:hover { cursor: pointer; }
           }
           &.active a {
             background-color: white;
