@@ -8,7 +8,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let offer of active_offer">
+      <tr (click)="showBeerDetails(offer.beer.id)" *ngFor="let offer of active_offer">
         <td>{{offer.beer.name}}</td>
         <td class="hidden-xs text-right">{{offer.beer.volume}} l</td>
         <td class="text-right">{{offer.value | number:'.2-2'}} zł</td>

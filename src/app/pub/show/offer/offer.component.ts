@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { PubService } from '../../pub.service';
 import { Offer } from '../../model/offer';
@@ -21,7 +22,8 @@ export class PubShowOfferComponent implements OnInit {
 
   PAGE_SIZE = 10;
 
-  constructor(private pubService: PubService) { }
+  constructor(private pubService: PubService,
+              private router: Router) { }
 
   ngOnInit() {
     this.getPubOffer();
@@ -31,6 +33,10 @@ export class PubShowOfferComponent implements OnInit {
     this.current_page = page;
     let begin = (this.current_page - 1)*this.PAGE_SIZE;
     this.active_offer = this.offer.slice(begin, begin + this.PAGE_SIZE);
+  }
+
+  showBeerDetails(beer_id: number) {
+    this.router.navigate(['/beer', beer_id]);
   }
 
   getPubOffer() {

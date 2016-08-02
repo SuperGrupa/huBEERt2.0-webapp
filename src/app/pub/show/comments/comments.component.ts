@@ -19,7 +19,7 @@ export class PubShowCommentsComponent implements OnInit {
   error_message: string;
   current_page: number = 1;
 
-  PAGE_SIZE = 5;
+  PAGE_SIZE = 10;
 
   constructor(private pubService: PubService) { }
 
