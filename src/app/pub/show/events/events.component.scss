@@ -1,0 +1,17 @@
+@import '../../../common/styles/main';
+
+.events {
+  margin-top: 10px;
+
+  .list-group-item {
+    background-color: $bg-white;
+
+    .list-group-item-text {
+      color: $text-dark;
+    }
+
+    &:hover {
+      background-color: white;
+    }
+  }
+}

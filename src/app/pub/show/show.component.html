@@ -4,7 +4,7 @@
       <h1>{{pub.name}}</h1>
     </div>
     <div class="col-sm-1 hidden-xs">
-      <h2 class="pull-right">{{ (pub.rating | number: '.1-1') || "brak" }}</h2>
+      <h2 class="pull-right">{{ (pub.rating | number: '.1-1') || "brak ocen" }}</h2>
     </div>
     <div class="col-xs-10 col-xs-offset-1 col-sm-2 col-sm-offset-0">
       <button *ngIf="currentUser()" class="subscribe btn pull-right" type="button">Subskrybuj</button>
@@ -36,14 +36,14 @@
             <a (click)="show('offer')">Oferta</a>
           </li>
           <li role="presentation" [class.active]="section === 'events'">
-            <a>Wydarzenia</a>
+            <a (click)="show('events')">Wydarzenia ({{ pub.events }})</a>
           </li>
           <li role="presentation" [class.active]="section === 'comments'">
             <a (click)="show('comments')">Opinie ({{ pub.comments }})</a>
           </li>
         </ul>
         <pub-show-offer    *ngIf="section === 'offer'"    [pub_id]="pub.id"></pub-show-offer>
-        <pub-show-events   *ngIf="section === 'events'"></pub-show-events>
+        <pub-show-events   *ngIf="section === 'events'"   [pub_id]="pub.id"></pub-show-events>
         <pub-show-comments *ngIf="section === 'comments'" [pub_id]="pub.id"></pub-show-comments>
       </div>
     </div>

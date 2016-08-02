@@ -13,6 +13,9 @@ const Url = {
   offer: function(pub_id: number) {
     return Config.server.__url() + 'pubs/' + pub_id + '/offers';
   },
+  events: function(pub_id: number) {
+    return Config.server.__url() + 'pubs/' + pub_id + '/events';
+  },
   cities: function() {
     return Config.server.__url() + 'cities';
   }

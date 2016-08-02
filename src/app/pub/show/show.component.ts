@@ -5,13 +5,18 @@ import { Pub } from '../model/pub';
 import { PubService } from '../pub.service';
 import { PubShowCommentsComponent } from './comments/comments.component';
 import { PubShowOfferComponent } from './offer/offer.component';
+import { PubShowEventsComponent } from './events/events.component';
 
 @Component({
   selector: 'pub-show',
   template: require('./show.component.html'),
   styles: [require('./show.component.scss')],
   providers: [PubService],
-  directives: [PubShowCommentsComponent, PubShowOfferComponent],
+  directives: [
+    PubShowCommentsComponent,
+    PubShowOfferComponent,
+    PubShowEventsComponent,
+  ],
 })
 
 export class PubShowComponent implements OnInit, OnDestroy {

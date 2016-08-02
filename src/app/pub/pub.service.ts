@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 import { Pub }            from './model/pub';
 import { Comment }        from './model/comment';
 import { Offer }          from './model/offer';
+import { Event }          from './model/event';
 import { Observable }     from 'rxjs/Observable';
 import Url from 'urls';
 
@@ -30,6 +31,12 @@ export class PubService {
 
   getOffer(pub_id: number): Observable<Offer[]> {
     return this.http.get(Url.offer(pub_id))
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  getEvents(pub_id: number): Observable<Event.General[]> {
+    return this.http.get(Url.events(pub_id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }

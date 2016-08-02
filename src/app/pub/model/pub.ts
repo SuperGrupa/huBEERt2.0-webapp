@@ -12,6 +12,7 @@ export namespace Pub {
     address: string;
     email: string;
     phone: string;
+    events: number;
   }
 
   export class List {
