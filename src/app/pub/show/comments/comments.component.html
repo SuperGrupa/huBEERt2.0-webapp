@@ -5,6 +5,11 @@
         <td class="col-xs-4 metadata">
           <div class="author">{{comment.author}}</div>
           <div class="created">{{comment.date | date: 'dd.MM.yyyy'}}</div>
+          <div class="rating">
+            <span *ngFor="let star of [].constructor(comment.rating); let i = index"
+              class="glyphicon glyphicon-star" aria-hidden="true">
+            </span>
+          </div>
         </td>
         <td class="col-xs-8">{{comment.text}}</td>
       </tr>

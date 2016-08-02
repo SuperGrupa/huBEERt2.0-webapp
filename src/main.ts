@@ -5,6 +5,8 @@ import 'zone.js/dist/zone';
 import 'assets/css/bootstrap.min.css';
 import 'assets/js/bootstrap.min.js';
 import 'assets/js/jquery.min.js';
+import 'assets/fonts/glyphicons-halflings-regular.ttf';
+import 'assets/fonts/glyphicons-halflings-regular.woff';
 import 'assets/img/beer.jpg';
 import 'assets/img/favicon.png';
 

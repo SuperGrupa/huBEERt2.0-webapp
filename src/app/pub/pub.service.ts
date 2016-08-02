@@ -2,6 +2,7 @@ import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Pub }            from './model/pub';
 import { Comment }        from './model/comment';
+import { Offer }          from './model/offer';
 import { Observable }     from 'rxjs/Observable';
 import Url from 'urls';
 
@@ -23,6 +24,12 @@ export class PubService {
 
   getComments(pub_id: number): Observable<Comment[]> {
     return this.http.get(Url.comments(pub_id))
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  getOffer(pub_id: number): Observable<Offer[]> {
+    return this.http.get(Url.offer(pub_id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }

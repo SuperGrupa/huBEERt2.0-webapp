@@ -1,0 +1,21 @@
+<div class="offer">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th class="col-xs-7">Piwo</th>
+        <th class="col-xs-2 hidden-xs text-right">Objętość</th>
+        <th class="col-xs-3 text-right">Cena</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let offer of active_offer">
+        <td>{{offer.beer.name}}</td>
+        <td class="hidden-xs text-right">{{offer.beer.volume}} l</td>
+        <td class="text-right">{{offer.value | number:'.2-2'}} zł</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination [total_items]="offer.length"
+              [items_per_page]="PAGE_SIZE"
+              [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>
+</div>

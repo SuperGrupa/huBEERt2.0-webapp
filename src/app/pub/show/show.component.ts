@@ -4,13 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Pub } from '../model/pub';
 import { PubService } from '../pub.service';
 import { PubShowCommentsComponent } from './comments/comments.component';
+import { PubShowOfferComponent } from './offer/offer.component';
 
 @Component({
   selector: 'pub-show',
   template: require('./show.component.html'),
   styles: [require('./show.component.scss')],
   providers: [PubService],
-  directives: [PubShowCommentsComponent],
+  directives: [PubShowCommentsComponent, PubShowOfferComponent],
 })
 
 export class PubShowComponent implements OnInit, OnDestroy {
@@ -33,8 +34,8 @@ export class PubShowComponent implements OnInit, OnDestroy {
     this.subscription.unsubscribe();
   }
 
-  showComments() {
-    this.section = "comments";
+  show(what: string) {
+    this.section = what;
   }
 
   getPub(id: number) {

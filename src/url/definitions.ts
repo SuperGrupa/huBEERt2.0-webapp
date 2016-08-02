@@ -10,6 +10,9 @@ const Url = {
   comments: function(pub_id: number) {
     return Config.server.__url() + 'pubs/' + pub_id + '/comments';
   },
+  offer: function(pub_id: number) {
+    return Config.server.__url() + 'pubs/' + pub_id + '/offers';
+  },
   cities: function() {
     return Config.server.__url() + 'cities';
   }
