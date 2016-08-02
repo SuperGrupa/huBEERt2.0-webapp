@@ -1,1 +1,16 @@
-<h1>Test</h1>
+<div class="comment">
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let comment of active_comments">
+        <td class="col-xs-4 metadata">
+          <div class="author">{{comment.author}}</div>
+          <div class="created">{{comment.date | date: 'dd.MM.yyyy'}}</div>
+        </td>
+        <td class="col-xs-8">{{comment.text}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination [total_items]="comments.length"
+              [items_per_page]="PAGE_SIZE"
+              [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>
+</div>

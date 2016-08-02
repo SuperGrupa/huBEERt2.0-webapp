@@ -1,6 +1,7 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Pub }            from './model/pub';
+import { Comment }        from './model/comment';
 import { Observable }     from 'rxjs/Observable';
 import Url from 'urls';
 
