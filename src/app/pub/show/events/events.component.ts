@@ -13,7 +13,7 @@ import { Event } from '../../model/event';
 
 export class PubShowEventsComponent implements OnInit {
   @Input() pub_id: number;
-  events: Event.General[] = [];
+  events: Event[] = [];
   error_message: string;
 
   constructor(private pubService: PubService,
@@ -29,7 +29,12 @@ export class PubShowEventsComponent implements OnInit {
 
   getPubEvents() {
     this.pubService.getEvents(this.pub_id).subscribe(
-      data => this.events = data,
+      data =>
+        this.events = data.sort((e1, e2) => {
+          if (e1.date > e2.date) return 1
+          else return -1;
+        })
+      ,
       error => this.error_message = <any>error
     );
   }

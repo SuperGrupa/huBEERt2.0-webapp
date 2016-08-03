@@ -35,7 +35,7 @@ export class PubService {
                     .catch(this.handleError);
   }
 
-  getEvents(pub_id: number): Observable<Event.General[]> {
+  getEvents(pub_id: number): Observable<Event[]> {
     return this.http.get(Url.events(pub_id))
                     .map(this.extractData)
                     .catch(this.handleError);

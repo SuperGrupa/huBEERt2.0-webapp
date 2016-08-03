@@ -1,13 +1,6 @@
-export namespace Event {
-
-  export class General {
-    id: number;
-    name: string;
-    date: Date;
-  }
-
-  export class Detail extends General {
-    description: string;
-  }
-
+export class Event {
+  id: number;
+  name: string;
+  date: Date;
+  description: string;
 }
