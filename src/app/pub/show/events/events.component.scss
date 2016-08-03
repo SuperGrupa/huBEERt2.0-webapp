@@ -5,13 +5,10 @@
 
   .list-group-item {
     background-color: $bg-white;
+    cursor: auto;
 
     .list-group-item-text {
       color: $text-dark;
-    }
-
-    &:hover {
-      background-color: white;
     }
   }
 }

@@ -1,0 +1,22 @@
+<div *ngIf="beer" class="container beer-show">
+  <div class="row">
+    <p class="col-xs-4 text-right">Nazwa piwa:</p>
+    <p class="col-xs-8"><strong>{{beer.name}}</strong></p>
+  </div>
+  <div class="row">
+    <p class="col-xs-4 text-right">Zawartość alkoholu:</p>
+    <p class="col-xs-8"><strong>{{beer.alcohol | number: '.1-1'}}%</strong></p>
+  </div>
+  <div class="row">
+    <p class="col-xs-4 text-right">Ekstrakt:</p>
+    <p class="col-xs-8"><strong>{{beer.extract | number: '.2-2'}}%</strong></p>
+  </div>
+  <div class="row">
+    <p class="col-xs-4 text-right">Objętość:</p>
+    <p class="col-xs-8"><strong>{{beer.volume | number: '.1-1'}} l</strong></p>
+  </div>
+  <div class="row">
+    <p class="col-xs-4 text-right">Charakterystyka:</p>
+    <p class="col-xs-8">{{beer.description}}</p>
+  </div>
+</div>

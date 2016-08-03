@@ -1,0 +1,11 @@
+@import '../../common/styles/main';
+
+.beer-show {
+  padding: 50px 0;
+  background-color: $bg-yellow;
+  border: 2px solid $border-grey;
+
+  p {
+    font-size: 150%;
+  }
+}

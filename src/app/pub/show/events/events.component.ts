@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Router } from '@angular/router';
 
 import { PubService } from '../../pub.service';
 import { Event } from '../../model/event';
@@ -16,15 +15,10 @@ export class PubShowEventsComponent implements OnInit {
   events: Event[] = [];
   error_message: string;
 
-  constructor(private pubService: PubService,
-              private router: Router) { }
+  constructor(private pubService: PubService) { }
 
   ngOnInit() {
     this.getPubEvents();
-  }
-
-  showEventDetails(event_id: number) {
-    this.router.navigate(['/pub', this.pub_id, '/event', event_id]);
   }
 
   getPubEvents() {

@@ -1,7 +1,5 @@
 <div class="events list-group">
-	<button type="button" *ngFor="let event of events" class="list-group-item"
-          (click)="showEventDetails(event.id)"
-  >
+	<button type="button" *ngFor="let event of events" class="list-group-item">
 		<h3 class="list-group-item-heading">{{event.name}}</h3>
 		<p class="list-group-item-text">
       <strong>Start:</strong>

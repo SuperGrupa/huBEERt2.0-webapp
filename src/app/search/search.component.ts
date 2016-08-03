@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ROUTER_DIRECTIVES } from '@angular/router';
+import { Router } from '@angular/router';
 
 import { City } from './model/city';
 import { CityService } from './service/city.service';
@@ -8,7 +8,6 @@ import { CityService } from './service/city.service';
   selector: 'search',
   styles: [require('./search.component.scss')],
   template: require('./search.component.html'),
-  directives: [ROUTER_DIRECTIVES],
   providers: [CityService],
 })
 
