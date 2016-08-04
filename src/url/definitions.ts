@@ -16,9 +16,15 @@ const Url = {
   events: function(pub_id: number) {
     return Config.server.__url() + 'pubs/' + pub_id + '/events';
   },
+
+  users: {
+    all: () => Config.server.__url() + 'users',
+  },
+
   beer(id: number) {
     return Config.server.__url() + 'beers/' + id;
   },
+
   cities: function() {
     return Config.server.__url() + 'cities';
   }

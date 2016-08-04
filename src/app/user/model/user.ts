@@ -6,4 +6,10 @@ export namespace User {
     password: string;
   }
 
+  export class Logged {
+    id: number;
+    login: string;
+    token: string;
+  }
+
 }

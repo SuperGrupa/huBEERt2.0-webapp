@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { NgForm }    from '@angular/forms';
 
 import { User } from '../model/user';
-import { UserService } from '../user.service';
+import { AuthService } from '../auth/auth.service';
 
 @Component({
   selector: 'user-login',
   template: require('./login.component.html'),
   styles: [require('./login.component.scss')],
-  providers: [UserService],
+  providers: [AuthService],
 })
 
 export class UserLoginComponent {

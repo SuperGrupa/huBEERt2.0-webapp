@@ -12,6 +12,11 @@
           <div *ngIf="email.errors.required">Email jest wymagany</div>
           <div *ngIf="email.errors.invalidFormat">Nieprawidłowy format adresu email</div>
         </div>
+        <div *ngIf="error_messages.email" class="alert alert-danger">
+          <div *ngFor="let error of error_messages.email">
+            "{{register_user.email}}" {{error}}
+          </div>
+        </div>
       </div>
       <div class="form-group">
         <label for="login">Login</label>
@@ -20,6 +25,11 @@
         >
         <div *ngIf="!(login.valid || login.untouched)" class="alert alert-danger">
           <div class="email.errors.required">Login jest wymagany</div>
+        </div>
+        <div *ngIf="error_messages.login" class="alert alert-danger">
+          <div *ngFor="let error of error_messages.login">
+            "{{register_user.login}}" {{error}}
+          </div>
         </div>
       </div>
       <div class="form-group">
