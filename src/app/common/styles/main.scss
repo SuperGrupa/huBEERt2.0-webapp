@@ -4,9 +4,10 @@ $bg-dark: #3F3939;
 $bg-yellow: rgba(220, 200, 20, 0.75);
 $bg-white: rgba(255, 255, 255, 0.3);
 
-$border-grey: #ddd;
+$border-grey: rgba(140, 140, 140, 0.5);
 
 $xs-max: 767px;
+$sm-min: 768px;
 $sm-max: 991px;
 
 button {

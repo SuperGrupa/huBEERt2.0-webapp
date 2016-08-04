@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import 'assets/img/logo.png';
@@ -10,4 +10,10 @@ import 'assets/img/logo.png';
   directives: [ROUTER_DIRECTIVES],
 })
 
-export class HeaderComponent { }
+export class HeaderComponent implements OnInit {
+  ngOnInit() {
+    $('.navbar-collapse a').click(() => {
+      $('.navbar-collapse').collapse('hide');
+    });
+  }
+}

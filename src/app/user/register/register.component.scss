@@ -1,0 +1,10 @@
+@import '../../common/styles/main';
+
+.register {
+  form {
+    background-color: $bg-yellow;
+    border: 3px solid $border-grey;
+    padding: 20px;
+    @media screen and (min-width: $sm-min) { border-radius: 15px; }
+  }
+}

@@ -3,3 +3,7 @@ declare var app: {
 };
 
 declare function require(id: string): any;
+
+interface JQuery {
+  collapse(options?:any):JQuery;
+}

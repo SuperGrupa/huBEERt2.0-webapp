@@ -3,7 +3,8 @@
 .beer-show {
   padding: 50px 0;
   background-color: $bg-yellow;
-  border: 2px solid $border-grey;
+  border: 3px solid $border-grey;
+  @media screen and (min-width: $sm-min) { border-radius: 15px; }
 
   p {
     font-size: 150%;
