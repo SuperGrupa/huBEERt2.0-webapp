@@ -17,7 +17,7 @@ export class UserRegisterComponent {
   register_user = new User.Registering;
 
   onSubmit() {
-    console.log(this.register_user);
+
   }
 }
 

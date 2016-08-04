@@ -28,8 +28,8 @@
                type="password" name="password" class="form-control" required minlength="8"
         >
         <div *ngIf="!(pass.valid || pass.untouched)" class="alert alert-danger">
-          <div class="email.errors.required">Hasło jest wymagane</div>
-          <div class="email.errors.minlength">Hasło musi mieć co najmniej 8 znaków</div>
+          <div class="pass.errors.required">Hasło jest wymagane</div>
+          <div class="pass.errors.minlength">Hasło musi mieć co najmniej 8 znaków</div>
         </div>
       </div>
       <button class="btn col-xs-12" [disabled]="!registerForm.form.valid">Zarejestruj</button>

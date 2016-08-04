@@ -1,0 +1,24 @@
+<div class="container login">
+  <div class="row">
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm"
+          class="form col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"
+    >
+      <div class="form-group">
+        <label for="login">Login</label>
+        <input [(ngModel)]="login_user.login" #login="ngModel"
+               name="login" class="form-control" required maxlength="20"
+        >
+        <div *ngIf="!(login.valid || login.untouched)" class="alert alert-danger">
+          Login jest wymagany do zalogowania
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Hasło</label>
+        <input [(ngModel)]="login_user.password" #pass="ngModel"
+               type="password" name="password" class="form-control" required minlength="8"
+        >
+      </div>
+      <button class="btn col-xs-12" [disabled]="!loginForm.form.valid">Zaloguj</button>
+    </form>
+  </div>
+</div>
