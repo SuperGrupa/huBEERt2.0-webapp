@@ -1,7 +1,7 @@
 const Config = {
   server: {
     __url: function() {
-      return 'http://hubeert-server.herokuapp.com/';
+      return 'https://hubeert-server.herokuapp.com/';
     },
   }
 };
