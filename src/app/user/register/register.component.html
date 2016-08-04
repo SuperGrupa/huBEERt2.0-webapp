@@ -1,19 +1,38 @@
 <div class="container register">
   <div class="row">
-    <form class="form col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm"
+          class="form col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"
+    >
       <div class="form-group">
         <label for="email">E-mail</label>
-        <input type="email" class="form-control">
+        <input [(ngModel)]="register_user.email" #email="ngModel"
+               name="email" class="form-control" required validateEmail
+        >
+        <div *ngIf="!(email.valid || email.untouched)" class="alert alert-danger">
+          <div *ngIf="email.errors.required">Email jest wymagany</div>
+          <div *ngIf="email.errors.invalidFormat">Nieprawidłowy format adresu email</div>
+        </div>
       </div>
       <div class="form-group">
         <label for="login">Login</label>
-        <input type="text" class="form-control">
+        <input [(ngModel)]="register_user.login" #login="ngModel"
+               name="login" class="form-control" required maxlength="20"
+        >
+        <div *ngIf="!(login.valid || login.untouched)" class="alert alert-danger">
+          <div class="email.errors.required">Login jest wymagany</div>
+        </div>
       </div>
       <div class="form-group">
         <label for="password">Hasło</label>
-        <input type="password" class="form-control">
+        <input [(ngModel)]="register_user.password" #pass="ngModel"
+               type="password" name="password" class="form-control" required minlength="8"
+        >
+        <div *ngIf="!(pass.valid || pass.untouched)" class="alert alert-danger">
+          <div class="email.errors.required">Hasło jest wymagane</div>
+          <div class="email.errors.minlength">Hasło musi mieć co najmniej 8 znaków</div>
+        </div>
       </div>
-      <button type="button" class="btn col-xs-12" (click)="register()">Zarejestruj</button>
+      <button class="btn col-xs-12" [disabled]="!registerForm.form.valid">Zarejestruj</button>
     </form>
   </div>
 </div>

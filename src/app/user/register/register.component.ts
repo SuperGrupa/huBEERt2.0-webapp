@@ -1,19 +1,23 @@
 import { Component } from '@angular/core';
-//import { ActivatedRoute } from '@angular/router';
+import { NgForm }    from '@angular/forms';
 
 import { User } from '../model/user';
 import { UserService } from '../user.service';
+import { EmailValidator } from '../../common/validators/email.validator';
 
 @Component({
   selector: 'user-register',
   template: require('./register.component.html'),
   styles: [require('./register.component.scss')],
   providers: [UserService],
+  directives: [EmailValidator],
 })
 
 export class UserRegisterComponent {
-  register() {
-    console.log('ok');
+  register_user = new User.Registering;
+
+  onSubmit() {
+    console.log(this.register_user);
   }
 }
 
