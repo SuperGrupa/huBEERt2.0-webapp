@@ -1,10 +1,14 @@
 $text-color: #e5e5e5;
 $text-dark: #333;
+
 $bg-dark: #3F3939;
 $bg-yellow: rgba(220, 200, 20, 0.75);
 $bg-white: rgba(255, 255, 255, 0.3);
 
 $border-grey: rgba(140, 140, 140, 0.5);
+
+$form-valid: #42A948;     /* green */
+$form-invalid: #a94442;   /* red   */
 
 $xs-max: 767px;
 $sm-min: 768px;
@@ -18,9 +22,9 @@ button {
 }
 
 .ng-valid[required] {
-  border-left: 5px solid #42A948; /* green */
+  border-left: 5px solid $form-valid;
 }
 
 .ng-invalid {
-  border-left: 5px solid #a94442; /* red */
+  border-left: 5px solid $form-invalid;
 }
