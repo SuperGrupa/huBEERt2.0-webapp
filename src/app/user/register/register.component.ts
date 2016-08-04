@@ -12,7 +12,9 @@ import { UserService } from '../user.service';
 })
 
 export class UserRegisterComponent {
-  
+  register() {
+    console.log('ok');
+  }
 }
 
 // export class PubShowComponent implements OnInit, OnDestroy {
