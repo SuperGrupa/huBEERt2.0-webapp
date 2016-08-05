@@ -6,10 +6,16 @@
   border: 0;
   margin: 0;
 
-  nav ul li a {
-    color: $text-color;
-    &:hover {
-      text-decoration: underline;
+  nav ul li {
+    p {
+      margin-right: 0;
+    }
+
+    a {
+      color: $text-color;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
 

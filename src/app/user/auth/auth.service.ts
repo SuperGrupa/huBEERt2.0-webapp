@@ -21,6 +21,10 @@ export class AuthService {
                     .catch(this.handleError);
   }
 
+  loggedUser(): User.Logged {
+    return this.logged_user;
+  }
+
   private setLoggedUser(user) {
     this.logged_user = user;
   }

@@ -11,9 +11,17 @@
     </a>
   </div>
   <nav id="navbar" class="navbar-collapse collapse">
-    <ul class="nav navbar-nav navbar-right">
+    <ul [hidden]="logged_user" class="nav navbar-nav navbar-right">
       <li><a [routerLink]="['/register']">Zarejestruj</a></li>
       <li><a [routerLink]="['/login']">Zaloguj</a></li>
+    </ul>
+    <ul *ngIf="logged_user" class="nav navbar-nav navbar-right">
+      <li>
+        <p class="navbar-text">Zalogowany jako
+          <a [routerLink]="['/']"><strong>{{logged_user.login}}</strong></a>
+        </p>
+      </li>
+      <li><a [routerLink]="['/']">Wyloguj</a></li>
     </ul>
   </nav>
 </header>
