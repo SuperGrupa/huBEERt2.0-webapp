@@ -9,7 +9,6 @@ import { Pagination } from '../../../common/pagination/pagination.component';
   selector: 'pub-show-offer',
   template: require('./offer.component.html'),
   styles: [require('./offer.component.scss')],
-  providers: [PubService],
   directives: [Pagination],
 })
 

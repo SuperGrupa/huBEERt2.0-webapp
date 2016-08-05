@@ -8,7 +8,6 @@ import { Pagination } from '../../../common/pagination/pagination.component';
   selector: 'pub-show-comments',
   template: require('./comments.component.html'),
   styles: [require('./comments.component.scss')],
-  providers: [PubService],
   directives: [Pagination],
 })
 

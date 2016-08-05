@@ -7,7 +7,6 @@ import { Event } from '../../model/event';
   selector: 'pub-show-events',
   template: require('./events.component.html'),
   styles: [require('./events.component.scss')],
-  providers: [PubService],
 })
 
 export class PubShowEventsComponent implements OnInit {

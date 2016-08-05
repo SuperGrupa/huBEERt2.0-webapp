@@ -17,7 +17,7 @@ export class UserRegisterComponent implements OnDestroy {
   subscription: any;
   error_messages = {};
   register_user = new User.Registering;
-  registered: boolean = !false;
+  registered: boolean = false;
 
   constructor(private authService: AuthService,
               private router: Router) { }
@@ -34,6 +34,9 @@ export class UserRegisterComponent implements OnDestroy {
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    // jeśli podejmowano próbę rejestracji
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

@@ -8,7 +8,6 @@ import { AuthService } from '../auth/auth.service';
   selector: 'user-login',
   template: require('./login.component.html'),
   styles: [require('./login.component.scss')],
-  providers: [AuthService],
 })
 
 export class UserLoginComponent {
