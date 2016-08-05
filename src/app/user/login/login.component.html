@@ -1,5 +1,5 @@
 <div class="container login">
-  <div class="row">
+  <div *ngIf="!logged" class="row">
     <form (ngSubmit)="onSubmit()" #loginForm="ngForm"
           class="form col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"
     >
@@ -11,14 +11,26 @@
         <div *ngIf="!(login.valid || login.untouched)" class="alert alert-danger">
           Login jest wymagany do zalogowania
         </div>
+        <div *ngIf="error_messages.login" class="alert alert-danger">
+          Login {{error_messages.login}}
+        </div>
       </div>
       <div class="form-group">
         <label for="password">Hasło</label>
         <input [(ngModel)]="login_user.password" #pass="ngModel"
                type="password" name="password" class="form-control" required minlength="8"
         >
+        <div *ngIf="!(pass.valid || pass.untouched)" class="alert alert-danger">
+          Podaj hasło do zalogowania
+        </div>
+        <div *ngIf="error_messages.password" class="alert alert-danger">
+          Hasło {{error_messages.password}}
+        </div>
       </div>
       <button class="btn col-xs-12" [disabled]="!loginForm.form.valid">Zaloguj</button>
     </form>
+  </div>
+  <div *ngIf="logged" class="row text-center">
+    <h2>Pomyślnie zalogowano jako <strong>{{login_user.login}}</strong></h2>
   </div>
 </div>

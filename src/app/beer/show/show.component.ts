@@ -1,5 +1,6 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { ActivatedRoute, ROUTER_DIRECTIVES } from '@angular/router';
+import { ActivatedRoute, ROUTER_DIRECTIVES }   from '@angular/router';
+import { Location }                            from '@angular/common';
 
 import { Beer } from '../model/beer';
 import { BeerService } from '../beer.service';
@@ -18,7 +19,8 @@ export class BeerShowComponent implements OnInit, OnDestroy {
   subscription: any;
 
   constructor(private beerService: BeerService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private location: Location) { }
 
   ngOnInit() {
     this.subscription = this.route.params.subscribe(params => {
@@ -29,6 +31,10 @@ export class BeerShowComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.subscription.unsubscribe();
+  }
+
+  goBackToPub() {
+    this.location.back();
   }
 
   getBeer(id: number) {

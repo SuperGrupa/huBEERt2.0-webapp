@@ -21,6 +21,10 @@ const Url = {
     all: () => Config.server.__url() + 'users',
   },
 
+  tokens: {
+    all: () => Config.server.__url() + 'tokens',
+  },
+
   beer(id: number) {
     return Config.server.__url() + 'beers/' + id;
   },
