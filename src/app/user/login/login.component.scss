@@ -1,9 +1,13 @@
 @import '../../common/styles/main';
 
 .login {
-  form {
+
+  .after-login, form {
     background-color: $bg-yellow;
     border: 3px solid $border-grey;
+  }
+
+  form {
     padding: 20px;
     @media screen and (min-width: $sm-min) { border-radius: 15px; }
 

@@ -23,6 +23,12 @@ export class AuthService {
                     .catch(this.handleError);
   }
 
+  login(user: User.Logging): Observable<User.Logged> {
+    return this.http.post(Url.tokens.all(), JSON.stringify(user), this.options)
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
   setLoggedUser(user: User.Logged) {
     this.logged_user = user;
     this.logged_user_source.next(this.logged_user);
