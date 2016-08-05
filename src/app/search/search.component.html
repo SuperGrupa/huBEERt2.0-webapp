@@ -14,7 +14,10 @@
         </div>
         <div class="form-group">
           <div class="col-xs-12">
-            <input [(ngModel)]="query" type="text" name="query" class="form-control" placeholder="Search">
+            <input [(ngModel)]="query" #text="ngModel" name="query" class="form-control" placeholder="Search" required>
+            <div *ngIf="!(text.valid || text.untouched)" class="alert alert-danger">
+              Proszę podać frazę do wyszukania
+            </div>
           </div>
         </div>
         <button type="button" class="btn col-xs-12" (click)="search()">Szukaj</button>
