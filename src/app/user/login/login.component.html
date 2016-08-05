@@ -30,7 +30,7 @@
       <button class="btn col-xs-12" [disabled]="!loginForm.form.valid">Zaloguj</button>
     </form>
   </div>
-  <div *ngIf="logged" class="row after-login text-center">
-    <h3>Pomyślnie zalogowano jako <strong>{{login_user.login}}</strong></h3>
+  <div *ngIf="logged" class="row text-center">
+    <h2>Pomyślnie zalogowano jako <strong>{{login_user.login}}</strong></h2>
   </div>
 </div>
