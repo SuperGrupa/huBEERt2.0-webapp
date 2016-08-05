@@ -1,4 +1,7 @@
 <div *ngIf="beer" class="container beer-show">
+  <button (click)="goBackToPub()" type="button" name="button" class="btn">
+    Powrót na stronę pubu
+  </button>
   <div class="row">
     <p class="col-xs-4 text-right">Nazwa piwa:</p>
     <p class="col-xs-8"><strong>{{beer.name}}</strong></p>

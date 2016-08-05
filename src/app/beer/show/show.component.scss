@@ -1,12 +1,16 @@
 @import '../../common/styles/main';
 
 .beer-show {
-  padding: 50px 0;
+  padding-bottom: 50px;
   background-color: $bg-yellow;
   border: 3px solid $border-grey;
   @media screen and (min-width: $sm-min) { border-radius: 15px; }
 
   p {
     font-size: 150%;
+  }
+
+  button {
+    margin: 20px 0;
   }
 }
