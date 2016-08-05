@@ -1,5 +1,5 @@
 <div class="container register">
-  <div class="row">
+  <div *ngIf="!registered" class="row">
     <form (ngSubmit)="onSubmit()" #registerForm="ngForm"
           class="form col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"
     >
@@ -44,5 +44,10 @@
       </div>
       <button class="btn col-xs-12" [disabled]="!registerForm.form.valid">Zarejestruj</button>
     </form>
+  </div>
+  <div *ngIf="registered" class="row text-center after-register">
+    <h3>Dziękujemy za rejestrację, jesteś teraz zalogowany jako <strong>{{register_user.login}}</strong></h3>
+    <br/>
+    <h4>Za chwilę nastąpi przekierowanie na stronę główną.</h4>
   </div>
 </div>

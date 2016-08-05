@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
+import { Subscription } from 'rxjs/Subscription';
 
 import 'assets/img/logo.png';
 import { User } from '../../user/model/user';
@@ -9,12 +10,12 @@ import { AuthService } from '../../user/auth/auth.service';
   selector: 'app-header',
   template: require('./header.component.html'),
   styles: [require('./header.component.scss')],
-  providers: [AuthService],
   directives: [ROUTER_DIRECTIVES],
 })
 
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, OnDestroy {
   logged_user: User.Logged;
+  subscription: Subscription;
 
   constructor(private authService: AuthService) { }
 
@@ -23,6 +24,12 @@ export class HeaderComponent implements OnInit {
       $('.navbar-collapse').collapse('hide');
     });
 
-    this.logged_user = this.authService.loggedUser();
+    this.subscription = this.authService.user_item.subscribe(
+      user => this.logged_user = user
+    );
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 }

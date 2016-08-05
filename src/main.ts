@@ -27,4 +27,5 @@ bootstrap(AppComponent, [
   HTTP_PROVIDERS,
   disableDeprecatedForms(),
   provideForms(),
-]);
+])
+.catch(err => console.error(err));
