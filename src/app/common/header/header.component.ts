@@ -14,8 +14,10 @@ import { AuthService } from '../../user/auth/auth.service';
 })
 
 export class HeaderComponent implements OnInit, OnDestroy {
+  error_messages = {};
   logged_user: User.Logged;
-  subscription: Subscription;
+  login_sub: Subscription;
+  logout_sub: Subscription;
 
   constructor(private authService: AuthService) { }
 
@@ -24,12 +26,23 @@ export class HeaderComponent implements OnInit, OnDestroy {
       $('.navbar-collapse').collapse('hide');
     });
 
-    this.subscription = this.authService.user_item.subscribe(
+    this.login_sub = this.authService.user_item.subscribe(
       user => this.logged_user = user
     );
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    this.login_sub.unsubscribe();
+
+    if (this.logout_sub) {
+      this.logout_sub.unsubscribe();
+    }
+  }
+
+  logout() {
+    this.logout_sub = this.authService.logout().subscribe(
+      _ => this.authService.setLoggedUser(null),
+      errors => this.error_messages = errors
+    );
   }
 }

@@ -12,8 +12,9 @@
       margin-right: 0;
     }
 
-    a {
+    a, span {
       color: $text-color;
+      cursor: pointer;
       &:hover {
         text-decoration: underline;
       }

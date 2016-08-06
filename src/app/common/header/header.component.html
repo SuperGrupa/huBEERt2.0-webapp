@@ -21,7 +21,7 @@
           <a [routerLink]="['/']"><strong>{{logged_user.login}}</strong></a>
         </p>
       </li>
-      <li><a [routerLink]="['/']">Wyloguj</a></li>
+      <li><a (click)="logout()">Wyloguj</a></li>
     </ul>
   </nav>
 </header>

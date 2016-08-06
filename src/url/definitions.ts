@@ -23,6 +23,7 @@ const Url = {
 
   tokens: {
     all: () => Config.server.__url() + 'tokens',
+    one: (token_id) => Config.server.__url() + 'tokens/' + token_id,
   },
 
   beer(id: number) {

@@ -29,6 +29,11 @@ export class AuthService {
                     .catch(this.handleError);
   }
 
+  logout(): Observable<any> {
+    return this.http.delete(Url.tokens.one(this.logged_user.token.id))
+                    .catch(this.handleError);
+  }
+
   setLoggedUser(user: User.Logged) {
     this.logged_user = user;
     this.logged_user_source.next(this.logged_user);

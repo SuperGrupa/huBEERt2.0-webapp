@@ -1,3 +1,5 @@
+import { Token } from './token';
+
 export namespace User {
 
   export class Registering {
@@ -14,7 +16,7 @@ export namespace User {
   export class Logged {
     id: number;
     login: string;
-    token: string;
+    token: Token;
   }
 
 }
