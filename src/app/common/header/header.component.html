@@ -22,6 +22,11 @@
         </p>
       </li>
       <li><a (click)="logout()">Wyloguj</a></li>
+      <li *ngIf="(error_messages | json) != '{}'">
+        <p class="navbar-text">
+          Nastąpiły błędy podczas wylogowywania!
+        </p>
+      </li>
     </ul>
   </nav>
 </header>

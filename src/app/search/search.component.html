@@ -1,7 +1,7 @@
 <div class="container-fluid search">
   <div class="row main">
     <div class="col-xs-10 col-xs-offset-1 col-sm-8 col-sm-offset-2 col-md-4 col-md-offset-4 text-left">
-      <form class="form-horizontal">
+      <form class="form-horizontal" (ngSubmit)="search()">
         <div class="form-group">
           <label for="city" class="col-xs-4">Miasto:</label>
           <div class="col-xs-8">
@@ -20,7 +20,7 @@
             </div>
           </div>
         </div>
-        <button type="button" class="btn col-xs-12" (click)="search()">Szukaj</button>
+        <button type="submit" class="btn col-xs-12">Szukaj</button>
       </form>
     </div>
   </div>
