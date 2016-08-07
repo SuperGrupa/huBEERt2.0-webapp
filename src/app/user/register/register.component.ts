@@ -27,7 +27,7 @@ export class UserRegisterComponent implements OnDestroy {
       user  => {
         this.authService.setLoggedUser(user);
         this.registered = true;
-        setTimeout(() => this.router.navigate(['/search']), 5000);
+        setTimeout(() => this.router.navigate(['/home']), 5000);
       },
       error => this.error_messages = <any>error
     );

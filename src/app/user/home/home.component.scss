@@ -1,0 +1,13 @@
+@import '../../common/styles/main';
+
+.home {
+  @include yellow-frame();
+
+  .nav {
+    margin-top: 10px;
+  }
+
+  .nav-pills>li+li {
+    margin-left: 0;
+  }
+}

@@ -1,9 +1,7 @@
 @import '../../common/styles/main';
 
 .pub-show {
-  background-color: $bg-yellow;
-  border: 3px solid $border-grey;
-  @media screen and (min-width: $sm-min) { border-radius: 15px; }
+  @include yellow-frame();
 
   .pub-header {
     .name {
@@ -35,21 +33,6 @@
         p {
           @media screen and (min-width: $sm-max) { display: inline-block; }
           strong { display: inline-block; width: 60px; }
-        }
-      }
-    }
-
-    .sections {
-      .nav {
-        margin-top: 30px;
-        li {
-          a {
-            color: $text-dark;
-            &:hover { cursor: pointer; }
-          }
-          &.active a {
-            background-color: white;
-          }
         }
       }
     }

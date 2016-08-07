@@ -1,7 +1,7 @@
 const Config = {
   server: {
     __url: function() {
-      return 'http://localhost:3000/';
+      return 'http://192.168.1.168:3000/';
     },
   }
 };

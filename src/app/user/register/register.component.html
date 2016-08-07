@@ -42,7 +42,7 @@
           <div class="pass.errors.minlength">Hasło musi mieć co najmniej 8 znaków</div>
         </div>
       </div>
-      <button class="btn col-xs-12" [disabled]="!registerForm.form.valid">Zarejestruj</button>
+      <button type="submit" class="btn col-xs-12" [disabled]="!registerForm.form.valid">Zarejestruj</button>
     </form>
   </div>
   <div *ngIf="registered" class="row text-center after-register">
