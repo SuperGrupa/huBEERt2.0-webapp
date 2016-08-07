@@ -9,12 +9,11 @@ import { Pagination }  from '../../../common/pagination/pagination.component';
 @Component({
   selector: 'user-comments',
   template: require('./comments.component.html'),
-  styles: [require('./comments.component.scss')],
   directives: [Pagination],
 })
 
 export class UserHomeCommentsComponent implements OnInit, OnDestroy {
-  @Input() user_id: number;
+  @Input() comments_number: number;
 
   error_message = {};
   comments: Comment[] = [];

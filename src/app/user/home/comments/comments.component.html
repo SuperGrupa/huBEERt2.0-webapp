@@ -1,4 +1,4 @@
-<div class="comment">
+<div *ngIf="comments_number > 0">
   <table class="table">
     <tbody>
       <tr *ngFor="let comment of active_comments">
@@ -18,4 +18,7 @@
   <pagination [total_items]="comments.length"
               [items_per_page]="PAGE_SIZE"
               [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>
+</div>
+<div *ngIf="comments_number === 0">
+  <h3 class="text-center">Nie napisałeś jeszcze żadnej opinii</h3>
 </div>

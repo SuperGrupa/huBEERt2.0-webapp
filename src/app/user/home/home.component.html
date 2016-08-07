@@ -25,7 +25,7 @@
       </ul>
       <user-notifications *ngIf="section === 'notifications'" [user_id]="user.id"></user-notifications>
       <user-subscriptions *ngIf="section === 'subscriptions'" [user_id]="user.id"></user-subscriptions>
-      <user-comments      *ngIf="section === 'comments'"      [user_id]="user.id"></user-comments>
+      <user-comments      *ngIf="section === 'comments'"      [comments_number]="user.comments"></user-comments>
       <user-settings      *ngIf="section === 'settings'"      [user_id]="user.id"></user-settings>
     </div>
   </div>
