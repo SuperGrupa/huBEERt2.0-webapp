@@ -3,7 +3,6 @@ import { Subscription }                        from 'rxjs/Subscription';
 
 import { Comment }     from '../../../pub/model/comment';
 import { UserService } from '../../user.service';
-import { User }        from '../../model/user';
 import { Pagination }  from '../../../common/pagination/pagination.component';
 
 @Component({

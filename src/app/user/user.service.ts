@@ -26,4 +26,11 @@ export class UserService {
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }
+
+  getSubscriptions() {
+    let user_id = 1;
+    return this.http.get(Url.users.subscriptions(user_id)/*, this.authService.authorizingOptions()*/)
+                    .map((res) => res.json() || { })
+                    .catch((error) => Observable.throw(error.json()));
+  }
 }

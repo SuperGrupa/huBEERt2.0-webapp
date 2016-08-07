@@ -1,0 +1,17 @@
+table {
+  margin-bottom: 0;
+
+  tr:hover {
+    cursor: pointer;
+    background-color: white;
+  }
+
+  .thumb {
+    background-color: white;
+    height: 100px;
+  }
+
+  .address {
+    padding-top: 20px;
+  }
+}

@@ -1,0 +1,17 @@
+<table class="table table-hover">
+  <tbody>
+    <tr *ngFor="let sub of active_subscriptions"
+        (click)="goToPub(sub.pub.id)">
+      <td class="col-sm-2"><div class="thumb"></div></td>
+      <td class="col-xs-6 col-sm-5">
+        <div><h3>{{sub.pub.name}}</h3></div>
+      </td>
+      <td class="col-xs-6 col-sm-5">
+        <div class="address">{{sub.pub.city}}, {{sub.pub.address}}</div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<pagination [total_items]="subscriptions.length"
+            [items_per_page]="PAGE_SIZE"
+            [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>

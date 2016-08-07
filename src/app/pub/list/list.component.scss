@@ -17,6 +17,10 @@ $list-bg: $bg-yellow;
     td {
       border-top: 2px solid $list-border;
       .pub-name { font-size: 150%; }
+      .thumb {
+        height: 100px;
+        background-color: white;
+      }
     }
 
     tr:hover, tr:active {
@@ -25,7 +29,7 @@ $list-bg: $bg-yellow;
     }
   }
 
-  .thumb, .offer {
+  .thumb, .pub-info {
     @media screen and (max-width: $xs-max) { display: none; }
   }
 }
