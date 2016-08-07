@@ -1,0 +1,21 @@
+<div class="comment">
+  <table class="table">
+    <tbody>
+      <tr *ngFor="let comment of active_comments">
+        <td class="col-xs-4 metadata">
+          <div class="pub"><strong>{{comment.pub}}</strong></div>
+          <div class="created">{{comment.date | date: 'dd.MM.yyyy'}}</div>
+          <div class="rating">
+            <span *ngFor="let star of [].constructor(comment.rating); let i = index"
+              class="glyphicon glyphicon-star" aria-hidden="true">
+            </span>
+          </div>
+        </td>
+        <td class="col-xs-8">{{comment.text}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination [total_items]="comments.length"
+              [items_per_page]="PAGE_SIZE"
+              [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>
+</div>

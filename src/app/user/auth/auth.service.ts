@@ -31,12 +31,7 @@ export class AuthService {
   }
 
   logout(): Observable<any> {
-    let options = new RequestOptions({
-      headers: this.headers,
-      search: new URLSearchParams('token=' + this.logged_user.token.value)
-    });
-
-    return this.http.delete(Url.tokens.one(this.logged_user.token.id), options)
+    return this.http.delete(Url.tokens.one(this.logged_user.token.id), this.authorizingOptions())
                     .catch(this.handleError);
   }
 
@@ -47,6 +42,13 @@ export class AuthService {
 
   loggedUser(): User.Logged {
     return this.logged_user;
+  }
+
+  authorizingOptions() {
+    return new RequestOptions({
+      headers: this.headers,
+      search: new URLSearchParams('token=' + this.logged_user.token.value)
+    });
   }
 
   private extractData(res: Response) {

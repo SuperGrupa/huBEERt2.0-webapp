@@ -5,9 +5,14 @@
 
   .nav {
     margin-top: 10px;
+
+    li {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
   }
 
-  .nav-pills>li+li {
+  .nav-pills > li+li {
     margin-left: 0;
   }
 }

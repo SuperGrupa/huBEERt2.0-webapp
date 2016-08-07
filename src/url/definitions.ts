@@ -19,6 +19,8 @@ const Url = {
 
   users: {
     all: () => Config.server.__url() + 'users',
+    one: (user_id) => Config.server.__url() + 'users/' + user_id,
+    comments: (user_id) => Config.server.__url() + 'users/' + user_id + '/comments',
   },
 
   tokens: {

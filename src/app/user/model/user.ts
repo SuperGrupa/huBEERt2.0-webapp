@@ -1,4 +1,5 @@
-import { Token } from './token';
+import { Token }   from './token';
+import { Comment } from '../../pub/model/comment';
 
 export namespace User {
 
@@ -17,6 +18,12 @@ export namespace User {
     id: number;
     login: string;
     token: Token;
+  }
+
+  export class General {
+    id: number;
+    comments: number;
+    subscriptions: number;
   }
 
 }
