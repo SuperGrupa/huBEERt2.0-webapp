@@ -1,0 +1,15 @@
+<div *ngIf="notifis_number > 0" class="notifications list-group">
+	<button type="button" *ngFor="let notify of notifications" class="list-group-item">
+		<h3 class="list-group-item-heading">{{notify.event.name}}</h3>
+		<p class="list-group-item-text">
+      <strong>Start:</strong>
+      {{notify.event.date | date: 'dd.MM.yyyy HH:mm'}}
+    </p>
+		<p class="list-group-item-text">
+			{{notify.event.description}}
+		</p>
+	</button>
+</div>
+<div *ngIf="notifis_number === 0">
+  <h3 class="text-center">Brak powiadomień. Zasubskrybuj ulubiony pub aby otrzymywać powiadomienia!</h3>
+</div>

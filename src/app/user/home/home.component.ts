@@ -6,6 +6,7 @@ import { AuthService }                    from '../auth/auth.service';
 import { UserService }                    from '../user.service';
 import { UserHomeCommentsComponent }      from './comments/comments.component';
 import { UserHomeSubscriptionsComponent } from './subscriptions/subscriptions.component';
+import { UserHomeNotificationsComponent } from './notifications/notifications.component';
 
 @Component({
   selector: 'user-home',
@@ -13,7 +14,8 @@ import { UserHomeSubscriptionsComponent } from './subscriptions/subscriptions.co
   styles: [require('./home.component.scss')],
   directives: [
     UserHomeCommentsComponent,
-    UserHomeSubscriptionsComponent
+    UserHomeSubscriptionsComponent,
+    UserHomeNotificationsComponent,
   ],
   providers: [UserService],
 })

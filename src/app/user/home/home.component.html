@@ -23,7 +23,7 @@
           <a (click)="show('settings')">Ustawienia konta</a>
         </li>
       </ul>
-      <user-notifications *ngIf="section === 'notifications'" [user_id]="user.id"></user-notifications>
+      <user-notifications *ngIf="section === 'notifications'" [notifis_number]="1"></user-notifications>
       <user-subscriptions *ngIf="section === 'subscriptions'" [subs_number]="user.subscriptions"></user-subscriptions>
       <user-comments      *ngIf="section === 'comments'"      [comments_number]="user.comments"></user-comments>
       <user-settings      *ngIf="section === 'settings'"      [user_id]="user.id"></user-settings>

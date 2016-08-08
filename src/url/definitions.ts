@@ -22,6 +22,7 @@ const Url = {
     one: (user_id) => Config.server.__url() + 'users/' + user_id,
     comments: (user_id) => Config.server.__url() + 'users/' + user_id + '/comments',
     subscriptions: (user_id) => Config.server.__url() + 'users/' + user_id + '/subscriptions',
+    notifications: (user_id) => Config.server.__url() + 'users/' + user_id + '/notifications',
   },
 
   tokens: {
