@@ -24,6 +24,7 @@ export namespace User {
     id: number;
     comments: number;
     subscriptions: number;
+    notifications: number;
   }
 
 }

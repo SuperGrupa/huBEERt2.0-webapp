@@ -24,7 +24,7 @@ const Url = {
     subscriptions: (user_id) => Config.server.__url() + 'users/' + user_id + '/subscriptions',
     notifications: {
       all: (user_id) => Config.server.__url() + 'users/' + user_id + '/notifications',
-      one: (user_id, not_id) => Config.server.__url() + 'users/' + user_id + '/notifications' + not_id,
+      one: (user_id, not_id) => Config.server.__url() + 'users/' + user_id + '/notifications/' + not_id,
     },
   },
 

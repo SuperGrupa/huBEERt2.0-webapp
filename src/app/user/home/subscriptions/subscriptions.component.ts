@@ -16,8 +16,8 @@ export class UserHomeSubscriptionsComponent implements OnInit, OnDestroy {
   @Input() subs_number: number;
 
   error_message = {};
-  subscriptions: Comment[] = [];
-  active_subscriptions: Comment[] = [];
+  subscriptions: Subscription[] = [];
+  active_subscriptions: Subscription[] = [];
   current_page: number;
   sub: any;
 

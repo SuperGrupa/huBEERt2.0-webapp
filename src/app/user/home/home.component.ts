@@ -43,4 +43,8 @@ export class UserHomeComponent implements OnInit, OnDestroy {
   show(what) {
     this.section = what;
   }
+
+  decNotifications(unread_notifications: number) {
+    this.user.notifications = unread_notifications;
+  }
 }

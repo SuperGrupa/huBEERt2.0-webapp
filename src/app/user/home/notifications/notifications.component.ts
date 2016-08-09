@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, Input, Output, OnInit, OnDestroy, EventEmitter } from '@angular/core';
 
 import { Notification }        from '../../model/notification';
 import { Subscription }        from '../../model/subscription';
@@ -14,9 +14,11 @@ import { NotificationService } from '../../notification.service';
 
 export class UserHomeNotificationsComponent implements OnInit, OnDestroy {
   @Input() notifis_number: number;
+  @Output() on_read_notification = new EventEmitter();
 
   error_message = {};
-  notifications: Notification[] = [];
+  notifications: Notification.Detail[] = [];
+  read_notifications: number = 0;
   sub: any;
 
   constructor(private userService: UserService,
@@ -33,7 +35,13 @@ export class UserHomeNotificationsComponent implements OnInit, OnDestroy {
     this.sub.unsubscribe();
   }
 
-  markAsRead() {
-    console.log('ok');
+  markAsRead(not_id: number) {
+    this.notificationService.markAsRead(not_id).subscribe(
+      notify => {
+        this.notifications.find(n => n.id === not_id).read = true;
+        this.on_read_notification.next(this.notifis_number - 1);
+      },
+      error => this.error_message = <any>error
+    );
   }
 }

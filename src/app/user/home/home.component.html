@@ -5,7 +5,7 @@
         <li role="presentation" [class.active]="section === 'notifications'"
             class="col-xs-6 col-sm-3"
         >
-          <a (click)="show('notifications')">Co się dzieje?</a>
+          <a (click)="show('notifications')">Co się dzieje? ({{user.notifications}})</a>
         </li>
         <li role="presentation" [class.active]="section === 'subscriptions'"
             class="col-xs-6 col-sm-3"
@@ -23,7 +23,7 @@
           <a (click)="show('settings')">Ustawienia konta</a>
         </li>
       </ul>
-      <user-notifications *ngIf="section === 'notifications'" [notifis_number]="1"></user-notifications>
+      <user-notifications *ngIf="section === 'notifications'" [notifis_number]="user.notifications" (on_read_notification)="decNotifications($event)"></user-notifications>
       <user-subscriptions *ngIf="section === 'subscriptions'" [subs_number]="user.subscriptions"></user-subscriptions>
       <user-comments      *ngIf="section === 'comments'"      [comments_number]="user.comments"></user-comments>
       <user-settings      *ngIf="section === 'settings'"      [user_id]="user.id"></user-settings>
