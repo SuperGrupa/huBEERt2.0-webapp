@@ -36,7 +36,7 @@ export class UserService {
 
   getNotifications() {
     let user_id = 1;
-    return this.http.get(Url.users.notifications(user_id)/*, this.authService.authorizingOptions()*/)
+    return this.http.get(Url.users.notifications.all(user_id)/*, this.authService.authorizingOptions()*/)
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }

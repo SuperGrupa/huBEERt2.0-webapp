@@ -23,6 +23,7 @@ export class UserLoginComponent implements OnDestroy {
   onSubmit() {
     this.subscription = this.authService.login(this.login_user).subscribe(
       user => {
+        console.log(user);
         this.authService.setLoggedUser(user);
         this.logged = true;
         setTimeout(() => this.router.navigate(['/home']), 2000);
