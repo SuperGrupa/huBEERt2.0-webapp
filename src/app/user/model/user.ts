@@ -1,5 +1,5 @@
-import { Token }   from './token';
-import { Comment } from '../../pub/model/comment';
+import { Token } from './token';
+import { City }  from '../../search/model/city';
 
 export namespace User {
 
@@ -22,9 +22,24 @@ export namespace User {
 
   export class General {
     id: number;
+    login: string;
+    email: string;
+    city: City;
     comments: number;
     subscriptions: number;
     notifications: number;
+  }
+
+  export class Updating {
+    login: string;
+    email: string;
+    city_id: number;
+
+    constructor(user: User.General) {
+      this.login = user.login;
+      this.email = user.email;
+      this.city_id = user.city.id;
+    }
   }
 
 }

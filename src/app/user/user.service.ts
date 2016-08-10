@@ -42,4 +42,11 @@ export class UserService {
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }
+
+  update(user: User.General) {
+    let user_id = 1;
+    return this.http.put(Url.users.one(user.id), new User.Updating(user)/*, this.authService.authorizingOptions()*/)
+                    .map((res) => res.json() || { })
+                    .catch((error) => Observable.throw(error.json()));
+  }
 }

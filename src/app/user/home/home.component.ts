@@ -7,6 +7,7 @@ import { UserService }                    from '../user.service';
 import { UserHomeCommentsComponent }      from './comments/comments.component';
 import { UserHomeSubscriptionsComponent } from './subscriptions/subscriptions.component';
 import { UserHomeNotificationsComponent } from './notifications/notifications.component';
+import { UserHomeSettingsComponent }      from './settings/settings.component';
 
 @Component({
   selector: 'user-home',
@@ -16,6 +17,7 @@ import { UserHomeNotificationsComponent } from './notifications/notifications.co
     UserHomeCommentsComponent,
     UserHomeSubscriptionsComponent,
     UserHomeNotificationsComponent,
+    UserHomeSettingsComponent,
   ],
   providers: [UserService],
 })

@@ -26,7 +26,7 @@
       <user-notifications *ngIf="section === 'notifications'" [notifis_number]="user.notifications" (on_read_notification)="decNotifications($event)"></user-notifications>
       <user-subscriptions *ngIf="section === 'subscriptions'" [subs_number]="user.subscriptions"></user-subscriptions>
       <user-comments      *ngIf="section === 'comments'"      [comments_number]="user.comments"></user-comments>
-      <user-settings      *ngIf="section === 'settings'"      [user_id]="user.id"></user-settings>
+      <user-settings      *ngIf="section === 'settings'"      [user]="user"></user-settings>
     </div>
   </div>
 </div>
