@@ -1,4 +1,5 @@
 import { RouterConfig } from '@angular/router';
+
 import { UserRegisterComponent } from './register/register.component';
 import { UserLoginComponent }    from './login/login.component';
 import { UserHomeComponent }     from './home/home.component';

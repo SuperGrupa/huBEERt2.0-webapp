@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Router }                       from '@angular/router';
 import { Subscription }                 from 'rxjs/Subscription';
 
 import { User }                           from '../model/user';
@@ -29,17 +30,28 @@ export class UserHomeComponent implements OnInit, OnDestroy {
   subscription: Subscription;
 
   constructor(private authService: AuthService,
-              private userService: UserService) { }
+              private userService: UserService,
+              private router: Router) { }
 
   ngOnInit() {
-    this.subscription = this.userService.getGeneralInfo().subscribe(
-      user => this.user = user,
-      error => this.error_messages = error
-    );
+    if (this.authService.loggedUser()) {
+      this.subscription = this.userService.getGeneralInfo().subscribe(
+        user => this.user = user,
+        error => this.error_messages = error
+      );
+    } else {
+      this.router.navigate(['/login']);
+    }
   }
 
   ngOnDestroy() {
-    this.subscription.unsubscribe();
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
+  }
+
+  routerOnActivate() {
+    console.log('routerOnActivate');
   }
 
   show(what) {
