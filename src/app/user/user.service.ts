@@ -43,10 +43,15 @@ export class UserService {
                     .catch((error) => Observable.throw(error.json()));
   }
 
-  update(user: User.General) {
+  update(user: User.General): Observable<User.General> {
     let user_id = 1;
     return this.http.put(Url.users.one(user.id), new User.Updating(user)/*, this.authService.authorizingOptions()*/)
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
+  }
+
+  delete(user_id: number): Observable<User.General> {
+    console.log('deleting...');
+    return;
   }
 }

@@ -6,11 +6,16 @@ import { City }           from '../../../search/model/city';
 import { CityService }    from '../../../search/service/city.service';
 import { EmailValidator } from '../../../common/validators/email.validator';
 
+import { UserSettingsRemoveAccountComponent } from './remove-account/remove.component';
+
 @Component({
   selector: 'user-settings',
   template: require('./settings.component.html'),
   styles: [require('./settings.component.scss')],
-  directives: [EmailValidator],
+  directives: [
+    EmailValidator,
+    UserSettingsRemoveAccountComponent,
+  ],
   providers: [CityService],
 })
 
@@ -35,7 +40,9 @@ export class UserHomeSettingsComponent {
     this.userService.update(this.user).subscribe(
       user => {
         this.user = user;
+        this.error_messages = {};
         this.update_success = true;
+        setTimeout(() => this.update_success = false, 3000);
       },
       errors => this.error_messages = errors
     );

@@ -1,7 +1,5 @@
-<div class="settings">
-  <form (ngSubmit)="onSubmit()" #settingsForm="ngForm"
-        class="form col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"
-  >
+<div class="settings col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+  <form (ngSubmit)="onSubmit()" #settingsForm="ngForm" class="form">
     <div *ngIf="update_success" class="alert alert-success">
       Zmiany zapisane pomyślnie!
     </div>
@@ -42,4 +40,5 @@
 		</div>
     <button type="submit" class="btn col-xs-12" [disabled]="!settingsForm.form.valid">Zapisz zmiany</button>
   </form>
+  <user-remove-account [user_id]="user.id"></user-remove-account>
 </div>
