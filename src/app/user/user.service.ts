@@ -15,43 +15,42 @@ export class UserService {
                private authService: AuthService) { }
 
   getGeneralInfo(): Observable<User.General> {
-    //let user_id = this.authService.loggedUser().id;
-    let user_id = 1;
-    return this.http.get(Url.users.one(user_id)/*, this.authService.authorizingOptions()*/)
+    let user_id = this.authService.loggedUser().id;
+    return this.http.get(Url.users.one(user_id), this.authService.authorizingOptions())
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }
 
   getComments(): Observable<Comment[]> {
-    let user_id = 1;
-    return this.http.get(Url.users.comments(user_id)/*, this.authService.authorizingOptions()*/)
+    let user_id = this.authService.loggedUser().id;
+    return this.http.get(Url.users.comments(user_id), this.authService.authorizingOptions())
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }
 
   getSubscriptions(): Observable<Subscription[]> {
-    let user_id = 1;
-    return this.http.get(Url.users.subscriptions(user_id)/*, this.authService.authorizingOptions()*/)
+    let user_id = this.authService.loggedUser().id;
+    return this.http.get(Url.users.subscriptions(user_id), this.authService.authorizingOptions())
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }
 
   getNotifications(): Observable<Notification.Detail[]> {
-    let user_id = 1;
-    return this.http.get(Url.users.notifications.all(user_id)/*, this.authService.authorizingOptions()*/)
+    let user_id = this.authService.loggedUser().id;
+    return this.http.get(Url.users.notifications.all(user_id), this.authService.authorizingOptions())
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }
 
   update(user: User.General): Observable<User.General> {
-    let user_id = 1;
-    return this.http.put(Url.users.one(user.id), new User.Updating(user)/*, this.authService.authorizingOptions()*/)
+    return this.http.put(Url.users.one(user.id), new User.Updating(user), this.authService.authorizingOptions())
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }
 
   delete(user_id: number): Observable<User.General> {
-    console.log('deleting...');
-    return;
+    return this.http.delete(Url.users.one(user_id), this.authService.authorizingOptions())
+                    .map((res) => res.json() || { })
+                    .catch((error) => Observable.throw(error.json()));
   }
 }

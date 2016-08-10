@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 import { Subscription } from 'rxjs/Subscription';
 
 import 'assets/img/logo.png';
@@ -19,7 +19,8 @@ export class HeaderComponent implements OnInit, OnDestroy {
   login_sub: Subscription;
   logout_sub: Subscription;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
     $('.navbar-collapse a').click(() => {
@@ -41,7 +42,10 @@ export class HeaderComponent implements OnInit, OnDestroy {
 
   logout() {
     this.logout_sub = this.authService.logout().subscribe(
-      _ => this.authService.setLoggedUser(null),
+      _ => {
+        this.authService.setLoggedUser(null);
+        this.router.navigate(['/search']);
+      },
       errors => this.error_messages = errors
     );
   }
