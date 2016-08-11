@@ -7,6 +7,7 @@ import 'assets/js/bootstrap.min.js';
 import 'assets/js/jquery.min.js';
 import 'assets/fonts/glyphicons-halflings-regular.ttf';
 import 'assets/fonts/glyphicons-halflings-regular.woff';
+import 'assets/fonts/glyphicons-halflings-regular.woff2';
 import 'assets/img/beer.jpg';
 import 'assets/img/favicon.png';
 

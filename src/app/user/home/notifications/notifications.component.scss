@@ -1,0 +1,26 @@
+@import '../../../common/styles/main';
+
+.notifications {
+
+  .notify {
+    background-color: $bg-white;
+    color: $text-dark;
+    cursor: auto;
+    border-left: none;
+    border-right: none;
+
+    &.read {
+      background-color: $bg-grey;
+    }
+
+    .mark-as-read {
+      display: inline-block;
+      margin-top: 10px;
+
+      &:hover {
+        color: $text-orange;
+        cursor: pointer;
+      }
+    }
+  }
+}

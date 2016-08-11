@@ -27,7 +27,7 @@
           Hasło {{error_messages.password}}
         </div>
       </div>
-      <button class="btn col-xs-12" [disabled]="!loginForm.form.valid">Zaloguj</button>
+      <button type="submit" class="btn col-xs-12" [disabled]="!loginForm.form.valid">Zaloguj</button>
     </form>
   </div>
   <div *ngIf="logged" class="row text-center">

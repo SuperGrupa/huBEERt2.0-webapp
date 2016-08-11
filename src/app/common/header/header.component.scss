@@ -1,24 +1,11 @@
 @import '../styles/main';
+@import '../styles/header';
 
 .app-header {
   background: $bg-dark;
   padding: 0 3%;
   border: 0;
   margin: 0;
-
-  nav ul li {
-    p {
-      padding-left: 15px;
-      margin-right: 0;
-    }
-
-    a {
-      color: $text-color;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-  }
 
   .navbar-brand {
     padding: 2px 0 0;

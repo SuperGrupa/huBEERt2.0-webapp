@@ -1,0 +1,43 @@
+<div class="remove-account row">
+  <div class="col-xs-12">
+    <hr/>
+    <span class="label label-danger">Strefa zagrożenia</span>
+    <div class="alert alert-danger" role="alert">
+      Tutaj możesz usunąć swoje konto w serwisie huBEERt
+      <div class="button-wrapper text-center">
+        <button type="button" name="button"
+        class="btn btn-danger" data-toggle="modal" data-target="#confirm"
+        >
+        Usuń konto
+      </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="confirm">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" name="button">&times;</button>
+        <h4>Ostrzeżenie</h4>
+      </div>
+      <div *ngIf="!remove_success" class="modal-body">
+        <p>Operacja usunięcia konta jest nieodwracalna!</p>
+        <p>Usunięte zostaną wszystkie Twoje dane osobowe, subskrypcje i komentarze.</p>
+        <p>Czy chcesz kontynuować?</p>
+      </div>
+      <div *ngIf="remove_success" class="modal-body">
+        <div class="alert alert-success">Pomyślnie usunięto konto, za chwilę nastąpi wylogowanie...</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">Anuluj</button>
+        <button type="button" class="btn btn-danger" name="confirm"
+                (click)="onConfirmationClick()"
+        >
+          Usuń konto
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,31 +12,31 @@ export class PubService {
   constructor (private http: Http) { }
 
   getPubs(page: number, filter: string, city: string): Observable<Pub.List> {
-    return this.http.get(Url.pubs(page, filter, city))
+    return this.http.get(Url.pubs.all(page, filter, city))
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
   getPub(id: number): Observable<Pub.Detail> {
-    return this.http.get(Url.pub(id))
+    return this.http.get(Url.pubs.one(id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
   getComments(pub_id: number): Observable<Comment[]> {
-    return this.http.get(Url.comments(pub_id))
+    return this.http.get(Url.pubs.comments(pub_id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
   getOffer(pub_id: number): Observable<Offer[]> {
-    return this.http.get(Url.offer(pub_id))
+    return this.http.get(Url.pubs.offer(pub_id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }
 
   getEvents(pub_id: number): Observable<Event[]> {
-    return this.http.get(Url.events(pub_id))
+    return this.http.get(Url.pubs.events(pub_id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }

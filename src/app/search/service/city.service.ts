@@ -9,7 +9,7 @@ export class CityService {
   constructor (private http: Http) { }
 
   getCities(): Observable<City[]> {
-    return this.http.get(Url.cities())
+    return this.http.get(Url.cities.all())
                     .map(this.extractData)
                     .catch(this.handleError);
   }

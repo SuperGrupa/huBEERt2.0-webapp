@@ -10,7 +10,7 @@ export class BeerService {
   constructor (private http: Http) { }
 
   getBeer(id: number): Observable<Beer.Detail> {
-    return this.http.get(Url.beer(id))
+    return this.http.get(Url.beers.one(id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }

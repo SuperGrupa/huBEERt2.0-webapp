@@ -5,6 +5,7 @@ export namespace Pub {
     name: string;
     rating: number;
     comments: number;
+    address: string;
   }
 
   export class Detail extends General {
@@ -18,6 +19,13 @@ export namespace Pub {
   export class List {
     pubs: Pub.General[];
     total_pubs: number;
+  }
+
+  export class Subscription {
+    id: number;
+    name: string;
+    address: string;
+    city: string;
   }
 
 }

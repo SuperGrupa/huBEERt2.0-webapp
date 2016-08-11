@@ -1,5 +1,6 @@
 import { Injectable }                              from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Response, Headers, RequestOptions,
+         URLSearchParams }                         from '@angular/http';
 import { User }                                    from '../model/user';
 import { Observable }                              from 'rxjs/Observable';
 import { BehaviorSubject }                         from 'rxjs/BehaviorSubject';
@@ -29,6 +30,15 @@ export class AuthService {
                     .catch(this.handleError);
   }
 
+  logout(): Observable<any> {
+    return this.http.delete(Url.tokens.one(this.logged_user.token.id), this.authorizingOptions())
+                    .catch(this.handleError);
+  }
+
+  changeLogin(login: string) {
+    this.logged_user.login = login;
+  }
+
   setLoggedUser(user: User.Logged) {
     this.logged_user = user;
     this.logged_user_source.next(this.logged_user);
@@ -36,6 +46,13 @@ export class AuthService {
 
   loggedUser(): User.Logged {
     return this.logged_user;
+  }
+
+  authorizingOptions() {
+    return new RequestOptions({
+      headers: this.headers,
+      search: new URLSearchParams('login=' + this.logged_user.login + '&token=' + this.logged_user.token.value)
+    });
   }
 
   private extractData(res: Response) {

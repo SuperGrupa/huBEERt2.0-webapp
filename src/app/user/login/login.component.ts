@@ -25,7 +25,7 @@ export class UserLoginComponent implements OnDestroy {
       user => {
         this.authService.setLoggedUser(user);
         this.logged = true;
-        setTimeout(() => this.router.navigate(['/search']), 2000);
+        setTimeout(() => this.router.navigate(['/home']), 2000);
       },
       errors => this.error_messages = errors
     );

@@ -1,0 +1,44 @@
+<div class="settings col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+  <form (ngSubmit)="onSubmit()" #settingsForm="ngForm" class="form">
+    <div *ngIf="update_success" class="alert alert-success">
+      Zmiany zapisane pomyślnie!
+    </div>
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input [(ngModel)]="user.login" #login="ngModel"
+             name="login" class="form-control" required maxlength="20"
+      >
+			<div *ngIf="!(login.valid || login.untouched)" class="alert alert-danger">
+				<div class="email.errors.required">Login jest wymagany</div>
+			</div>
+      <div *ngIf="error_messages.login" class="alert alert-danger">
+        Login {{error_messages.login}}
+      </div>
+    </div>
+		<div class="form-group">
+      <label for="email">Email</label>
+      <input [(ngModel)]="user.email" #email="ngModel"
+             name="email" class="form-control" required validateEmail
+      >
+			<div *ngIf="!(email.valid || email.untouched)" class="alert alert-danger">
+				<div *ngIf="email.errors.required">Email jest wymagany</div>
+				<div *ngIf="email.errors.invalidFormat">Nieprawidłowy format adresu email</div>
+			</div>
+      <div *ngIf="error_messages.email" class="alert alert-danger">
+        Email {{error_messages.email}}
+      </div>
+    </div>
+		<div class="form-group">
+			<label for="city">Miasto:</label>
+			<div>
+				<select class="form-control" [(ngModel)]="user.city.id" name="city">
+					<option *ngFor="let city of cities" [value]="city.id">
+						{{city.name}}
+					</option>
+				</select>
+			</div>
+		</div>
+    <button type="submit" class="btn col-xs-12" [disabled]="!settingsForm.form.valid">Zapisz zmiany</button>
+  </form>
+  <user-remove-account [user_id]="user.id"></user-remove-account>
+</div>

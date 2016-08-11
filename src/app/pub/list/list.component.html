@@ -7,12 +7,12 @@
       <tbody>
         <tr *ngFor="let pub of pubs"
             (click)="goToPub(pub.id)">
-          <td class="col-sm-1 thumb"><p>MINIATURKA</p></td>
+          <td class="col-sm-2"><div class="thumb"></div></td>
           <td class="col-xs-6 col-sm-3">
             <div class="pub-name">{{pub.name}}</div>
           </td>
-          <td class="col-sm-6 offer">Oferta</td>
-          <td class="col-xs-6 col-sm-2">
+          <td class="col-sm-5 address">{{pub.address}}</td>
+          <td class="col-xs-6 col-sm-2 pub-info">
             <div>Ocena: {{ (pub.rating | number: '.1-1') || "brak"}}</div>
             <div><small>Komentarze: {{pub.comments}}</small></div>
           </td>

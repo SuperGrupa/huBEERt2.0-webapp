@@ -1,11 +1,14 @@
 $text-color: #e5e5e5;
 $text-dark: #333;
+$text-orange: #dc7c00;
 
+$bg-grey: rgba(180, 180, 180, 0.5);
 $bg-dark: #3F3939;
 $bg-yellow: rgba(220, 200, 20, 0.75);
 $bg-white: rgba(255, 255, 255, 0.3);
 
 $border-grey: rgba(140, 140, 140, 0.5);
+$border-red: #ff4c4c;
 
 $form-valid: #42A948;     /* green */
 $form-invalid: #a94442;   /* red   */
@@ -27,4 +30,25 @@ button {
 
 .ng-invalid {
   border-left: 5px solid $form-invalid;
+}
+
+.sections {
+  .nav {
+    margin-top: 30px;
+    li {
+      a {
+        color: $text-dark;
+        &:hover { cursor: pointer; }
+      }
+      &.active a {
+        background-color: white;
+      }
+    }
+  }
+}
+
+@mixin yellow-frame() {
+  background-color: $bg-yellow;
+  border: 3px solid $border-grey;
+  @media screen and (min-width: $sm-min) { border-radius: 15px; }
 }
