@@ -35,6 +35,10 @@ export class AuthService {
                     .catch(this.handleError);
   }
 
+  changeLogin(login: string) {
+    this.logged_user.login = login;
+  }
+
   setLoggedUser(user: User.Logged) {
     this.logged_user = user;
     this.logged_user_source.next(this.logged_user);

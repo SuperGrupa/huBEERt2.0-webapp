@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
+import { AuthService }    from '../../auth/auth.service';
 import { User }           from '../../model/user';
 import { UserService }    from '../../user.service';
 import { City }           from '../../../search/model/city';
@@ -26,7 +27,8 @@ export class UserHomeSettingsComponent {
   cities: City[] = [];
   update_success: boolean = false;
 
-  constructor(private userService: UserService,
+  constructor(private authService: AuthService,
+              private userService: UserService,
               private cityService: CityService) { }
 
   ngOnInit() {
@@ -40,6 +42,7 @@ export class UserHomeSettingsComponent {
     this.userService.update(this.user).subscribe(
       user => {
         this.user = user;
+        this.authService.changeLogin(this.user.login);
         this.error_messages = {};
         this.update_success = true;
         setTimeout(() => this.update_success = false, 3000);
