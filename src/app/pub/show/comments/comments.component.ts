@@ -1,18 +1,27 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { ROUTER_DIRECTIVES }                   from '@angular/router';
 
-import { PubService } from '../../pub.service';
-import { Comment } from '../../model/comment';
-import { Pagination } from '../../../common/pagination/pagination.component';
+import { AuthService }            from '../../../user/auth/auth.service';
+import { PubService }             from '../../pub.service';
+import { Comment }                from '../../model/comment';
+import { Pagination }             from '../../../common/pagination/pagination.component';
+import { PubCommentNewComponent } from './new/new.component';
 
 @Component({
   selector: 'pub-show-comments',
   template: require('./comments.component.html'),
   styles: [require('./comments.component.scss')],
-  directives: [Pagination],
+  directives: [
+    ROUTER_DIRECTIVES,
+    Pagination,
+    PubCommentNewComponent
+  ],
 })
 
 export class PubShowCommentsComponent implements OnInit {
   @Input() pub_id: number;
+  @Input() comments_number: number;
+
   comments: Comment[] = [];
   active_comments: Comment[] = [];
   error_message: string;
@@ -20,7 +29,8 @@ export class PubShowCommentsComponent implements OnInit {
 
   PAGE_SIZE = 10;
 
-  constructor(private pubService: PubService) { }
+  constructor(private authService: AuthService,
+              private pubService: PubService) { }
 
   ngOnInit() {
     this.getPubComments();

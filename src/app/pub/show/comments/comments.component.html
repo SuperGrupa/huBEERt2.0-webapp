@@ -1,4 +1,5 @@
-<div class="comment">
+<div *ngIf="comments_number > 0" class="comment">
+  <pub-comment-new *ngIf="authService.loggedUser()"></pub-comment-new>
   <table class="table">
     <tbody>
       <tr *ngFor="let comment of active_comments">
@@ -18,4 +19,11 @@
   <pagination [total_items]="comments.length"
               [items_per_page]="PAGE_SIZE"
               [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>
+</div>
+<div *ngIf="comments_number === 0" class="text-center">
+  <h3>Nikt nie wydał jeszcze opinii, bądź pierwszy!</h3>
+  <pub-comment-new></pub-comment-new>
+  <!-- <a *ngIf="!authService.loggedUser()" class="btn" [routerLink]="['/login']">
+    Zaloguj się, aby dodać własną opinię
+  </a> -->
 </div>
