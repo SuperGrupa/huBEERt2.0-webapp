@@ -47,7 +47,7 @@ export class AuthService {
   authorizingOptions() {
     return new RequestOptions({
       headers: this.headers,
-      search: new URLSearchParams('token=' + this.logged_user.token.value)
+      search: new URLSearchParams('login=' + this.logged_user.login + '&token=' + this.logged_user.token.value)
     });
   }
 
