@@ -5,12 +5,13 @@ import './rxjs-operators';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { AuthService } from './user/auth/auth.service';
+import { UserService} from './user/user.service';
 
 @Component({
   selector: 'app',
   template: require('./app.component.html'),
   styles: [require('./app.component.scss')],
-  providers: [AuthService],
+  providers: [AuthService, UserService],
   directives: [
     ROUTER_DIRECTIVES,
     HeaderComponent,

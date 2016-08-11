@@ -13,7 +13,6 @@ import { AuthService } from '../auth/auth.service';
 
 export class UserLoginComponent implements OnDestroy {
   login_user = new User.Registering;
-  logged: boolean = false;
   subscription: any;
   error_messages = {};
 
@@ -24,8 +23,7 @@ export class UserLoginComponent implements OnDestroy {
     this.subscription = this.authService.login(this.login_user).subscribe(
       user => {
         this.authService.setLoggedUser(user);
-        this.logged = true;
-        setTimeout(() => this.router.navigate(['/home']), 2000);
+        this.router.navigate(['/home']);
       },
       errors => this.error_messages = errors
     );

@@ -20,7 +20,6 @@ import { UserHomeSettingsComponent }      from './settings/settings.component';
     UserHomeNotificationsComponent,
     UserHomeSettingsComponent,
   ],
-  providers: [UserService],
 })
 
 export class UserHomeComponent implements OnInit, OnDestroy {

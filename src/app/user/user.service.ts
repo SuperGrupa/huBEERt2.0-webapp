@@ -30,7 +30,7 @@ export class UserService {
 
   getSubscriptions(): Observable<Subscription[]> {
     let user_id = this.authService.loggedUser().id;
-    return this.http.get(Url.users.subscriptions(user_id), this.authService.authorizingOptions())
+    return this.http.get(Url.users.subscriptions.all(user_id), this.authService.authorizingOptions())
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }

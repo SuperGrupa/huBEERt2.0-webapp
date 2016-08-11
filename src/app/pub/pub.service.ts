@@ -5,11 +5,13 @@ import { Comment }        from './model/comment';
 import { Offer }          from './model/offer';
 import { Event }          from './model/event';
 import { Observable }     from 'rxjs/Observable';
+import { AuthService }    from '../user/auth/auth.service';
 import Url from 'urls';
 
 @Injectable()
 export class PubService {
-  constructor (private http: Http) { }
+  constructor (private authService: AuthService,
+               private http: Http) { }
 
   getPubs(page: number, filter: string, city: string): Observable<Pub.List> {
     return this.http.get(Url.pubs.all(page, filter, city))
@@ -37,6 +39,13 @@ export class PubService {
 
   getEvents(pub_id: number): Observable<Event[]> {
     return this.http.get(Url.pubs.events(pub_id))
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  subscribe(pub_id: number): Observable<Pub.Detail> {
+    let user = this.authService.loggedUser();
+    return this.http.post(Url.users.subscriptions.all(user.id), { pub_id, user_id: user.id }, this.authService.authorizingOptions())
                     .map(this.extractData)
                     .catch(this.handleError);
   }
