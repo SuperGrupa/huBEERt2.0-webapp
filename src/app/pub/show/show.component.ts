@@ -71,7 +71,7 @@ export class PubShowComponent implements OnInit, OnDestroy {
   }
 
   subscribe() {
-    this.pubService.subscribe(this.pub.id).subscribe(
+    this.userService.subscribe(this.pub.id).subscribe(
       _ => this.is_subscribed = true
     );
   }

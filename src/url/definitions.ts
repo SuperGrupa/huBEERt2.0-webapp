@@ -15,6 +15,7 @@ const Url = {
     comments: (user_id) => Config.server.__url() + 'users/' + user_id + '/comments',
     subscriptions: {
       all: (user_id) => Config.server.__url() + 'users/' + user_id + '/subscriptions',
+      one: (user_id, sub_id) => Config.server.__url() + 'users/' + user_id + '/subscriptions/' + sub_id,
     },
     notifications: {
       all: (user_id) => Config.server.__url() + 'users/' + user_id + '/notifications',

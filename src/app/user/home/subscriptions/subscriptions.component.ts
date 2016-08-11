@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { Router }                              from '@angular/router';
+import { Component, Input, Output, OnInit, OnDestroy, EventEmitter } from '@angular/core';
+import { Router }                                                    from '@angular/router';
 
 import { Subscription } from '../../model/subscription';
 import { UserService }  from '../../user.service';
@@ -14,6 +14,7 @@ import { Pagination }   from '../../../common/pagination/pagination.component';
 
 export class UserHomeSubscriptionsComponent implements OnInit, OnDestroy {
   @Input() subs_number: number;
+  @Output() on_sub_cancel = new EventEmitter();
 
   error_message = {};
   subscriptions: Subscription[] = [];
@@ -38,6 +39,17 @@ export class UserHomeSubscriptionsComponent implements OnInit, OnDestroy {
 
   ngOnDestroy() {
     this.sub.unsubscribe();
+  }
+
+  unsubscribe(sub_id: number) {
+    this.userService.unsubscribe(sub_id).subscribe(
+      subs => {
+        this.subscriptions = subs;
+        this.on_sub_cancel.next(this.subscriptions.length);
+        this.pageChanged(this.current_page);
+      },
+      errors => this.error_message = errors
+    );
   }
 
   goToPub(pub_id: number) {

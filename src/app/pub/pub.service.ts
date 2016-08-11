@@ -43,13 +43,6 @@ export class PubService {
                     .catch(this.handleError);
   }
 
-  subscribe(pub_id: number): Observable<Pub.Detail> {
-    let user = this.authService.loggedUser();
-    return this.http.post(Url.users.subscriptions.all(user.id), { pub_id, user_id: user.id }, this.authService.authorizingOptions())
-                    .map(this.extractData)
-                    .catch(this.handleError);
-  }
-
   private extractData(res: Response) {
     let body = res.json();
     return body || { };

@@ -53,4 +53,18 @@ export class UserService {
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }
+
+  subscribe(pub_id: number): Observable<any> {
+    let user = this.authService.loggedUser();
+    return this.http.post(Url.users.subscriptions.all(user.id), { pub_id, user_id: user.id }, this.authService.authorizingOptions())
+                    .map((res) => res.json() || { })
+                    .catch((error) => Observable.throw(error.json()));
+  }
+
+  unsubscribe(sub_id: number) {
+    let user = this.authService.loggedUser();
+    return this.http.delete(Url.users.subscriptions.one(user.id, sub_id), this.authService.authorizingOptions())
+                    .map((res) => res.json() || { })
+                    .catch((error) => Observable.throw(error.json()));
+  }
 }
