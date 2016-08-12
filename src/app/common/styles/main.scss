@@ -5,6 +5,7 @@ $text-orange: #dc7c00;
 $bg-grey: rgba(180, 180, 180, 0.5);
 $bg-dark: #3F3939;
 $bg-yellow: rgba(220, 200, 20, 0.75);
+$bg-gold: rgba(212, 117, 15, 0.75);
 $bg-white: rgba(255, 255, 255, 0.3);
 
 $border-grey: rgba(140, 140, 140, 0.5);
@@ -39,9 +40,13 @@ $sm-max: 991px;
       a {
         color: $text-dark;
         &:hover { cursor: pointer; }
+
+        .badge { background-color: $bg-gold; }
       }
       &.active a {
         background-color: white;
+
+        .badge { color: white; }
       }
     }
   }

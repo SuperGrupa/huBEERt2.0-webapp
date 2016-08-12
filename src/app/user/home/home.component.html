@@ -5,17 +5,17 @@
         <li role="presentation" [class.active]="section === 'notifications'"
             class="col-xs-6 col-sm-3"
         >
-          <a (click)="show('notifications')">Co się dzieje? ({{user.notifications}})</a>
+          <a (click)="show('notifications')">Co się dzieje? <span class="badge">{{ user.notifications }}</span></a>
         </li>
         <li role="presentation" [class.active]="section === 'subscriptions'"
             class="col-xs-6 col-sm-3"
         >
-          <a (click)="show('subscriptions')">Subskrypcje ({{user.subscriptions}})</a>
+          <a (click)="show('subscriptions')">Subskrypcje <span class="badge">{{ user.subscriptions }}</span></a>
         </li>
         <li role="presentation" [class.active]="section === 'comments'"
             class="col-xs-6 col-sm-3"
         >
-          <a (click)="show('comments')">Twoje opinie ({{ user.comments }})</a>
+          <a (click)="show('comments')">Twoje opinie <span class="badge">{{ user.comments }}</span></a>
         </li>
         <li role="presentation" [class.active]="section === 'settings'"
             class="col-xs-6 col-sm-3"
