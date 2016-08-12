@@ -1,8 +1,14 @@
 <div class="new-comment text-center">
-  <div *ngIf="authService.loggedUser()">
-    <textarea name="comment" rows="4" [(ngModel)]="comment.text"></textarea>
+  <form class="form" (ngSubmit)="addComment()" #commentForm="ngForm" *ngIf="authService.loggedUser()">
+    <textarea name="comment" rows="4" [(ngModel)]="comment.text" #text="ngModel" required maxlength="160"></textarea>
+    <div *ngIf="!(text.valid || text.untouched)" class="alert alert-danger">
+      Musisz podać treść opinii
+    </div>
+    <div *ngIf="error_messages.text" class="alert alert-danger">
+      Treść opinii {{error_messages.text}}
+    </div>
     <div class="button-wrapper">
-      <button class="btn pull-right" type="button" name="button" (click)="addComment()">
+      <button class="btn pull-right" type="submit" name="button" [disabled]="!commentForm.form.valid">
         Dodaj opinię
       </button>
     </div>
@@ -16,7 +22,7 @@
         <input type="radio" name="rating" value="5" (click)="onRatingChanged(5)"/><i></i>
       </span>
     </div>
-  </div>
+  </form>
   <a *ngIf="!authService.loggedUser()" class="btn" [routerLink]="['/login']">
     Zaloguj się, aby dodać własną opinię
   </a>
