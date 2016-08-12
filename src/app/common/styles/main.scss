@@ -35,10 +35,16 @@ $sm-max: 991px;
 
 .sections {
   .nav {
+    border-bottom: 1px solid $border-grey;
     margin-top: 30px;
+
     li {
+      padding-left: 10px;
+      padding-right: 10px;
+
       a {
         color: $text-dark;
+        padding: 10px;
         &:hover { cursor: pointer; }
 
         .badge { background-color: $bg-gold; }
@@ -48,6 +54,10 @@ $sm-max: 991px;
 
         .badge { color: white; }
       }
+    }
+
+    &.nav-pills > li+li {
+      margin-left: 0;
     }
   }
 }

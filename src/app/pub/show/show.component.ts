@@ -13,7 +13,6 @@ import { PubShowEventsComponent }   from './events/events.component';
   selector: 'pub-show',
   template: require('./show.component.html'),
   styles: [require('./show.component.scss')],
-  providers: [PubService],
   directives: [
     PubShowCommentsComponent,
     PubShowOfferComponent,

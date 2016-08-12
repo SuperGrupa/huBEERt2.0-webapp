@@ -6,12 +6,17 @@ import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
 import { AuthService } from './user/auth/auth.service';
 import { UserService} from './user/user.service';
+import { PubService } from './pub/pub.service';
 
 @Component({
   selector: 'app',
   template: require('./app.component.html'),
   styles: [require('./app.component.scss')],
-  providers: [AuthService, UserService],
+  providers: [
+    AuthService,
+    UserService,
+    PubService,
+  ],
   directives: [
     ROUTER_DIRECTIVES,
     HeaderComponent,

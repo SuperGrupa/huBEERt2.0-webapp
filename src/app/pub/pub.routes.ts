@@ -1,6 +1,7 @@
-import { RouterConfig } from '@angular/router';
-import { PubListComponent } from './list/list.component';
-import { PubShowComponent } from './show/show.component';
+import { RouterConfig }       from '@angular/router';
+import { PubListComponent }   from './list/list.component';
+import { PubShowComponent }   from './show/show.component';
+import { PubManageComponent } from './manage/manage.component';
 
 const routes: RouterConfig = [
   {
@@ -10,6 +11,10 @@ const routes: RouterConfig = [
   {
     path: 'pub/:id',
     component: PubShowComponent
+  },
+  {
+    path: 'manage',
+    component: PubManageComponent
   },
 ];
 
