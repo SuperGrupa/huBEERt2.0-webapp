@@ -1,5 +1,4 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { ROUTER_DIRECTIVES }                   from '@angular/router';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 
 import { AuthService }            from '../../../user/auth/auth.service';
 import { PubService }             from '../../pub.service';
@@ -12,7 +11,6 @@ import { PubCommentNewComponent } from './new/new.component';
   template: require('./comments.component.html'),
   styles: [require('./comments.component.scss')],
   directives: [
-    ROUTER_DIRECTIVES,
     Pagination,
     PubCommentNewComponent
   ],
@@ -21,9 +19,10 @@ import { PubCommentNewComponent } from './new/new.component';
 export class PubShowCommentsComponent implements OnInit {
   @Input() pub_id: number;
   @Input() comments_number: number;
+  @Output() on_new_comment = new EventEmitter();
 
-  comments: Comment[] = [];
-  active_comments: Comment[] = [];
+  comments: Comment.General[] = [];
+  active_comments: Comment.General[] = [];
   error_message: string;
   current_page: number = 1;
 
@@ -50,8 +49,14 @@ export class PubShowCommentsComponent implements OnInit {
           else return 1;
         });
         this.pageChanged(1);
+        this.comments_number = this.comments.length;
       },
       error => this.error_message = <any>error
     );
+  }
+
+  onNewComment() {
+    this.on_new_comment.next(this.comments_number + 1);
+    this.getPubComments();
   }
 }

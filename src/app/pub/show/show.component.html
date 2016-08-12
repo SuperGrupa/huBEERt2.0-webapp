@@ -45,7 +45,7 @@
         </ul>
         <pub-show-offer    *ngIf="section === 'offer'"    [pub_id]="pub.id"></pub-show-offer>
         <pub-show-events   *ngIf="section === 'events'"   [pub_id]="pub.id"></pub-show-events>
-        <pub-show-comments *ngIf="section === 'comments'" [pub_id]="pub.id" [comments_number]="pub.comments"></pub-show-comments>
+        <pub-show-comments *ngIf="section === 'comments'" [pub_id]="pub.id" [comments_number]="pub.comments" (on_new_comment)="onNewComment($event)"></pub-show-comments>
       </div>
     </div>
   </div>

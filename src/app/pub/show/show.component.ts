@@ -75,4 +75,8 @@ export class PubShowComponent implements OnInit, OnDestroy {
       _ => this.is_subscribed = true
     );
   }
+
+  onNewComment(comments_number: number) {
+    this.pub.comments = comments_number;
+  }
 }

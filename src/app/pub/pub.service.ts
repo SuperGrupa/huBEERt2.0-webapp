@@ -25,8 +25,8 @@ export class PubService {
                     .catch(this.handleError);
   }
 
-  getComments(pub_id: number): Observable<Comment[]> {
-    return this.http.get(Url.pubs.comments(pub_id))
+  getComments(pub_id: number): Observable<Comment.General[]> {
+    return this.http.get(Url.pubs.comments.all(pub_id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -39,6 +39,13 @@ export class PubService {
 
   getEvents(pub_id: number): Observable<Event[]> {
     return this.http.get(Url.pubs.events(pub_id))
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  addComment(comment: Comment.New): Observable<Comment.New> {
+    let user = this.authService.loggedUser();
+    return this.http.post(Url.pubs.comments.all(comment.pub_id), comment, this.authService.authorizingOptions())
                     .map(this.extractData)
                     .catch(this.handleError);
   }

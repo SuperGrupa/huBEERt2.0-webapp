@@ -21,7 +21,7 @@ export class UserService {
                     .catch((error) => Observable.throw(error.json()));
   }
 
-  getComments(): Observable<Comment[]> {
+  getComments(): Observable<Comment.General[]> {
     let user_id = this.authService.loggedUser().id;
     return this.http.get(Url.users.comments(user_id), this.authService.authorizingOptions())
                     .map((res) => res.json() || { })

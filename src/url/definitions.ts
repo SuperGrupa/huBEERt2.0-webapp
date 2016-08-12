@@ -4,7 +4,9 @@ const Url = {
   pubs: {
     all: (page: number, filter: string, city: string) => Config.server.__url() + 'pubs?q=' + filter + '&city=' + city + '&page=' + page,
     one: (id: number) => Config.server.__url() + 'pubs/' + id,
-    comments: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/comments',
+    comments: {
+      all: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/comments',
+    },
     offer: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/offers',
     events: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/events',
   },

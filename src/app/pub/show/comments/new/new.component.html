@@ -1,18 +1,23 @@
-<div class="new-comment">
-  <textarea name="comment" rows="4" [(ngModel)]="comment.text"></textarea>
-  <div class="button-wrapper">
-    <button class="btn pull-right" type="button" name="button" (click)="addComment()">
-      Dodaj opinię
-    </button>
+<div class="new-comment text-center">
+  <div *ngIf="authService.loggedUser()">
+    <textarea name="comment" rows="4" [(ngModel)]="comment.text"></textarea>
+    <div class="button-wrapper">
+      <button class="btn pull-right" type="button" name="button" (click)="addComment()">
+        Dodaj opinię
+      </button>
+    </div>
+    <div class="rating">
+      <strong class="choice">Wystaw ocenę:</strong>
+      <span class="stars">
+        <input type="radio" name="rating" value="1" (click)="onRatingChanged(1)"/><i></i>
+        <input type="radio" name="rating" value="2" (click)="onRatingChanged(2)"/><i></i>
+        <input type="radio" name="rating" value="3" (click)="onRatingChanged(3)"/><i></i>
+        <input type="radio" name="rating" value="4" (click)="onRatingChanged(4)"/><i></i>
+        <input type="radio" name="rating" value="5" (click)="onRatingChanged(5)"/><i></i>
+      </span>
+    </div>
   </div>
-  <div class="rating">
-    <strong class="choice">Wystaw ocenę:</strong>
-    <span class="stars">
-      <input type="radio" name="rating" value="1"/><i></i>
-      <input type="radio" name="rating" value="2"/><i></i>
-      <input type="radio" name="rating" value="3"/><i></i>
-      <input type="radio" name="rating" value="4"/><i></i>
-      <input type="radio" name="rating" value="5"/><i></i>
-    </span>
-  </div>
+  <a *ngIf="!authService.loggedUser()" class="btn" [routerLink]="['/login']">
+    Zaloguj się, aby dodać własną opinię
+  </a>
 </div>
