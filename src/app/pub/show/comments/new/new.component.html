@@ -1,9 +1,6 @@
 <div class="new-comment text-center">
   <form class="form" (ngSubmit)="addComment()" #commentForm="ngForm" *ngIf="authService.loggedUser()">
     <textarea name="comment" rows="4" [(ngModel)]="comment.text" #text="ngModel" required maxlength="160"></textarea>
-    <div *ngIf="!(text.valid || text.untouched)" class="alert alert-danger">
-      Musisz podać treść opinii
-    </div>
     <div *ngIf="error_messages.text" class="alert alert-danger">
       Treść opinii {{error_messages.text}}
     </div>
