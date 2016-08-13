@@ -5,12 +5,12 @@
         <li role="presentation" [class.active]="section === 'offers'"
             class="col-xs-6 col-sm-3"
         >
-          <a (click)="show('offers')">Oferta <span class="badge">{{ pub.offers }}</span></a>
+          <a (click)="show('offers')">Oferta</a>
         </li>
         <li role="presentation" [class.active]="section === 'events'"
             class="col-xs-6 col-sm-3"
         >
-          <a (click)="show('events')">Wydarzenia <span class="badge">{{ pub.events }}</span></a>
+          <a (click)="show('events')">Wydarzenia</a>
         </li>
         <li role="presentation" [class.active]="section === 'main'"
             class="col-xs-6 col-sm-3"
@@ -18,7 +18,7 @@
           <a (click)="show('main')">Strona główna</a>
         </li>
       </ul>
-      <pub-manage-offers    *ngIf="section === 'offers'" ></pub-manage-offers>
+      <pub-manage-offers    *ngIf="section === 'offers'" [pub_id]="pub.id"></pub-manage-offers>
       <pub-manage-events    *ngIf="section === 'events'" ></pub-manage-events>
       <pub-manage-main-page *ngIf="section === 'main'"   ></pub-manage-main-page>
     </div>

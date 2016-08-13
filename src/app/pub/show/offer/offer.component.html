@@ -5,13 +5,17 @@
         <th class="col-xs-7">Piwo</th>
         <th class="col-xs-2 hidden-xs text-right">Objętość</th>
         <th class="col-xs-3 text-right">Cena</th>
+        <th *ngIf="full_options">Edytuj</th>
+        <th *ngIf="full_options">Usuń</th>
       </tr>
     </thead>
     <tbody>
-      <tr (click)="showBeerDetails(offer.beer.id)" *ngFor="let offer of active_offer">
-        <td>{{offer.beer.name}}</td>
+      <tr *ngFor="let offer of active_offer">
+        <td (click)="showBeerDetails(offer.beer.id)">{{offer.beer.name}}</td>
         <td class="hidden-xs text-right">{{offer.beer.volume}} l</td>
         <td class="text-right">{{offer.value | number:'.2-2'}} zł</td>
+        <td *ngIf="full_options" class="text-center"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></td>
+        <td *ngIf="full_options" class="text-center"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></td>
       </tr>
     </tbody>
   </table>

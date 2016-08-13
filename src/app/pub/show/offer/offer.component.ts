@@ -14,6 +14,7 @@ import { Pagination } from '../../../common/pagination/pagination.component';
 
 export class PubShowOfferComponent implements OnInit {
   @Input() pub_id: number;
+  @Input() full_options: boolean = false;
   offer: Offer[] = [];
   active_offer: Offer[] = [];
   error_message: string;
