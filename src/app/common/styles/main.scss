@@ -18,7 +18,7 @@ $xs-max: 767px;
 $sm-min: 768px;
 $sm-max: 991px;
 
-.btn {
+.btn:not(.btn-default) {
   color: $text-color;
   background-color: $bg-dark;
 

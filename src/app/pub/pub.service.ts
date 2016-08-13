@@ -32,7 +32,7 @@ export class PubService {
   }
 
   getOffer(pub_id: number): Observable<Offer[]> {
-    return this.http.get(Url.pubs.offer(pub_id))
+    return this.http.get(Url.pubs.offer.all(pub_id))
                     .map(this.extractData)
                     .catch(this.handleError);
   }

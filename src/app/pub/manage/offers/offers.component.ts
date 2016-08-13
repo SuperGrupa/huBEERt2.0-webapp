@@ -27,4 +27,8 @@ export class PubManageOffersComponent implements OnInit {
       }
     );
   }
+
+  onDelete(offer_id: number) {
+    
+  }
 }

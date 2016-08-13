@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { PubService } from '../../pub.service';
 import { Offer } from '../../model/offer';
@@ -9,12 +9,17 @@ import { Pagination } from '../../../common/pagination/pagination.component';
   selector: 'pub-show-offer',
   template: require('./offer.component.html'),
   styles: [require('./offer.component.scss')],
-  directives: [Pagination],
+  directives: [
+    Pagination,
+    ROUTER_DIRECTIVES
+  ],
 })
 
 export class PubShowOfferComponent implements OnInit {
   @Input() pub_id: number;
   @Input() full_options: boolean = false;
+  @Output() on_delete = new EventEmitter();
+
   offer: Offer[] = [];
   active_offer: Offer[] = [];
   error_message: string;
@@ -47,5 +52,9 @@ export class PubShowOfferComponent implements OnInit {
       },
       error => this.error_message = <any>error
     );
+  }
+
+  onDelete(offer_id: number) {
+    this.on_delete.next(offer_id);
   }
 }

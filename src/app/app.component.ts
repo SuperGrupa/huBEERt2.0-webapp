@@ -7,6 +7,7 @@ import { FooterComponent } from './common/footer/footer.component';
 import { AuthService } from './user/auth/auth.service';
 import { UserService} from './user/user.service';
 import { PubService } from './pub/pub.service';
+import { OfferService } from './pub/manage/offers/service/offer.service';
 
 @Component({
   selector: 'app',
@@ -16,6 +17,7 @@ import { PubService } from './pub/pub.service';
     AuthService,
     UserService,
     PubService,
+    OfferService,
   ],
   directives: [
     ROUTER_DIRECTIVES,

@@ -7,7 +7,10 @@ const Url = {
     comments: {
       all: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/comments',
     },
-    offer: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/offers',
+    offer: {
+      all: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/offers',
+      one: (pub_id: number, offer_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/offers/' + offer_id,
+    },
     events: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/events',
   },
 

@@ -2,6 +2,7 @@ import { RouterConfig }       from '@angular/router';
 import { PubListComponent }   from './list/list.component';
 import { PubShowComponent }   from './show/show.component';
 import { PubManageComponent } from './manage/manage.component';
+import { PubManageOffersEditComponent } from './manage/offers/edit/edit.component';
 
 const routes: RouterConfig = [
   {
@@ -15,6 +16,10 @@ const routes: RouterConfig = [
   {
     path: 'manage',
     component: PubManageComponent
+  },
+  {
+    path: 'manage/offer/:offer_id/edit',
+    component: PubManageOffersEditComponent
   },
 ];
 
