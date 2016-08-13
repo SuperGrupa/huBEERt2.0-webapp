@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { AuthService }              from '../../user/auth/auth.service';
 import { UserService }              from '../../user/user.service';
 import { Pub }                      from '../model/pub';
+import { Offer }                    from '../model/offer';
 import { PubService }               from '../pub.service';
 import { PubShowCommentsComponent } from './comments/comments.component';
 import { PubShowOfferComponent }    from './offer/offer.component';
@@ -26,6 +27,7 @@ export class PubShowComponent implements OnInit, OnDestroy {
   is_subscribed: boolean = false;
   section: string = 'offer';
   subscription: any;
+  offers: Offer[] = [];
 
   constructor(private authService: AuthService,
               private userService: UserService,
@@ -36,6 +38,7 @@ export class PubShowComponent implements OnInit, OnDestroy {
     this.subscription = this.route.params.subscribe(params => {
       let id = params['id'];
       this.getPub(id);
+      this.getOffer(id);
     });
   }
 
@@ -45,6 +48,12 @@ export class PubShowComponent implements OnInit, OnDestroy {
 
   show(what: string) {
     this.section = what;
+  }
+
+  getOffer(id: number) {
+    this.pubService.getOffer(id).subscribe(
+      offers => this.offers = offers
+    );
   }
 
   getPub(id: number) {

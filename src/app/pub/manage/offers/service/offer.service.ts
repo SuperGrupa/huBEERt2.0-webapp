@@ -23,4 +23,11 @@ export class OfferService {
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }
+
+  delete(pub_id, offer_id): Observable<Offer> {
+    //let user_id = this.authService.loggedUser().id;
+    return this.http.delete(Url.pubs.offer.one(pub_id, offer_id) /*, this.authService.authorizingOptions()*/)
+                    .map((res) => res.json() || { })
+                    .catch((error) => Observable.throw(error.json()));
+  }
 }
