@@ -27,7 +27,7 @@ export class PubManageOffersEditComponent implements OnInit {
       params => {
         //let user = this.authService.loggedUser();
         // TODO wstawić prawidłowe id usera
-        this.pub_id = 11;
+        this.pub_id = 1;
         this.offerService.get(this.pub_id, params['offer_id']).subscribe(
           offer => this.offer = offer
         );

@@ -3,6 +3,7 @@ import { PubListComponent }   from './list/list.component';
 import { PubShowComponent }   from './show/show.component';
 import { PubManageComponent } from './manage/manage.component';
 import { PubManageOffersEditComponent } from './manage/offers/edit/edit.component';
+import { PubManageOffersNewComponent  } from './manage/offers/new/new.component';
 
 const routes: RouterConfig = [
   {
@@ -16,6 +17,10 @@ const routes: RouterConfig = [
   {
     path: 'manage',
     component: PubManageComponent
+  },
+  {
+    path: 'manage/offer/new',
+    component: PubManageOffersNewComponent
   },
   {
     path: 'manage/offer/:offer_id/edit',

@@ -8,6 +8,7 @@ import { AuthService } from './user/auth/auth.service';
 import { UserService} from './user/user.service';
 import { PubService } from './pub/pub.service';
 import { OfferService } from './pub/manage/offers/service/offer.service';
+import { BeerService } from './beer/beer.service';
 
 @Component({
   selector: 'app',
@@ -18,6 +19,7 @@ import { OfferService } from './pub/manage/offers/service/offer.service';
     UserService,
     PubService,
     OfferService,
+    BeerService,
   ],
   directives: [
     ROUTER_DIRECTIVES,

@@ -9,7 +9,6 @@ import { BeerService } from '../beer.service';
   selector: 'beer-show',
   template: require('./show.component.html'),
   styles: [require('./show.component.scss')],
-  providers: [BeerService],
   directives: [ROUTER_DIRECTIVES],
 })
 

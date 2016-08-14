@@ -1,1 +1,26 @@
-<pub-show-offer [pub_id]="pub_id" [full_options]="true" (on_delete)="onDelete($event)"></pub-show-offer>
+<div *ngIf="offer" class="container">
+  <div class="row">
+    <form (ngSubmit)="onSubmit()" #newForm="ngForm"
+          class="form col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"
+    >
+      <div class="form-group">
+        <label for="beer">Piwo</label>
+        <select class="form-control" [(ngModel)]="offer.beer.id" name="beer">
+          <option *ngFor="let beer of beers" [value]="beer.id">
+            {{beer.name}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="value">Cena (zł)</label>
+        <input type="number" [(ngModel)]="offer.value" name="value" class="form-control"
+               min="0.01" step="0.01">
+        <div *ngIf="error_messages.value" class="alert alert-danger">
+          Cena {{error_messages.value}}
+        </div>
+      </div>
+      <button type="submit" class="btn" [disabled]="!newForm.form.valid">Dodaj</button>
+      <button type="button" class="btn btn-default" (click)="goBack()">Anuluj</button>
+    </form>
+  </div>
+</div>

@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ROUTER_DIRECTIVES }        from '@angular/router';
 
 import { Offer }                 from '../../model/offer';
 import { PubService }            from '../../pub.service';
@@ -9,7 +10,10 @@ import { PubShowOfferComponent } from '../../show/offer/offer.component';
   selector: 'pub-manage-offers',
   template: require('./offers.component.html'),
   styles: [require('./offers.component.scss')],
-  directives: [PubShowOfferComponent],
+  directives: [
+    PubShowOfferComponent,
+    ROUTER_DIRECTIVES
+  ],
 })
 
 export class PubManageOffersComponent implements OnInit {

@@ -34,6 +34,7 @@ const Url = {
   },
 
   beers: {
+    all: () => Config.server.__url() + 'beers',
     one: (id: number) => Config.server.__url() + 'beers/' + id,
   },
 

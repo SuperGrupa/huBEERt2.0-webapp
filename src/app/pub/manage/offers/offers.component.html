@@ -1,4 +1,5 @@
 <div class="offers">
+  <a [routerLink]="['offer/new']" class="btn add" name="add">Dodaj do oferty</a>
   <pub-show-offer [offers]="offers" [full_options]="true" (on_delete)="onDelete($event)"></pub-show-offer>
   <div class="modal fade" id="confirm">
     <div class="modal-dialog">
