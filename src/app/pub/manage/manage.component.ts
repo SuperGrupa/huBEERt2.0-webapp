@@ -5,13 +5,15 @@ import { Pub }                      from '../model/pub';
 import { AuthService }              from '../../user/auth/auth.service';
 import { PubService }               from '../pub.service';
 import { PubManageOffersComponent } from './offers/offers.component';
+import { PubManageEventsComponent } from './events/events.component';
 
 @Component({
   selector: 'pub-manage',
   template: require('./manage.component.html'),
   styles: [require('./manage.component.scss')],
   directives: [
-    PubManageOffersComponent
+    PubManageOffersComponent,
+    PubManageEventsComponent,
   ],
 })
 
