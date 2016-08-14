@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute }           from '@angular/router';
+import { Router, ActivatedRoute }   from '@angular/router';
 import { Location }                 from '@angular/common';
 
 import { Offer }                 from '../../../model/offer';
@@ -19,15 +19,19 @@ export class PubManageOffersEditComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private offerService: OfferService,
+              private router: Router,
               private route: ActivatedRoute,
               private location: Location) { }
 
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        //let user = this.authService.loggedUser();
-        // TODO wstawić prawidłowe id usera
-        this.pub_id = 1;
+        this.pub_id = this.authService.ownerPubId();
+        if (!this.pub_id) {
+          this.router.navigate(['/login']);
+          return;
+        }
+
         this.offerService.get(this.pub_id, params['offer_id']).subscribe(
           offer => this.offer = offer
         );

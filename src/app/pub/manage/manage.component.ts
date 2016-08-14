@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router }            from '@angular/router';
 
 import { Pub }                      from '../model/pub';
+import { AuthService }              from '../../user/auth/auth.service';
 import { PubService }               from '../pub.service';
 import { PubManageOffersComponent } from './offers/offers.component';
 
@@ -17,11 +19,19 @@ export class PubManageComponent implements OnInit {
   section: string = 'offers';
   pub: Pub.General;
 
-  constructor(private pubService: PubService) { }
+  constructor(private pubService: PubService,
+              private authService: AuthService,
+              private router: Router) { }
 
   ngOnInit() {
-    // TODO pobieranie właściwego id pubu
-    this.pubService.getPub(1).subscribe(
+    // TODO przywrócić kontrolę
+    // let pub_id = this.authService.ownerPubId();
+    // if (!pub_id) {
+    //   this.router.navigate(['/login']);
+    //   return;
+    // }
+    let pub_id = 1;
+    this.pubService.getPub(pub_id).subscribe(
       pub => this.pub = pub
     );
   }
