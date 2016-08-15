@@ -29,13 +29,11 @@ export class PubManageEventsNewComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        // TODO
-        // this.pub_id = this.authService.ownerPubId();
-        // if (!this.pub_id) {
-        //   this.router.navigate(['/login']);
-        //   return;
-        // }
-        this.pub_id = 1;
+        this.pub_id = this.authService.ownerPubId();
+        if (!this.pub_id) {
+          this.router.navigate(['/login']);
+          return;
+        }
         this.event = new Event();
       }
     );
