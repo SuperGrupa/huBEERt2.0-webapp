@@ -8,17 +8,17 @@ import { EventService }          from '../service/event.service';
 import { AuthService }           from '../../../../user/auth/auth.service';
 
 @Component({
-  selector: 'pub-manage-events-edit',
-  template: require('./edit.component.html'),
-  styles: [require('./edit.component.scss')],
+  selector: 'pub-manage-events-new',
+  template: require('./new.component.html'),
+  styles: [require('./new.component.scss')],
   providers: [EventService],
 })
 
-export class PubManageEventsEditComponent implements OnInit {
+export class PubManageEventsNewComponent implements OnInit {
   event: Event;
   pub_id: number;
   error_messages = {};
-  date: FullDate;
+  date: FullDate = new FullDate(new Date());
 
   constructor(private authService: AuthService,
               private eventService: EventService,
@@ -29,25 +29,21 @@ export class PubManageEventsEditComponent implements OnInit {
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        this.pub_id = this.authService.ownerPubId();
-        if (!this.pub_id) {
-          this.router.navigate(['/login']);
-          return;
-        }
-
-        this.eventService.get(this.pub_id, params['event_id']).subscribe(
-          event => {
-            this.event = event;
-            this.date = new FullDate(new Date(this.event.date));
-          }
-        );
+        // TODO
+        // this.pub_id = this.authService.ownerPubId();
+        // if (!this.pub_id) {
+        //   this.router.navigate(['/login']);
+        //   return;
+        // }
+        this.pub_id = 1;
+        this.event = new Event();
       }
     );
   }
 
   onSubmit() {
     this.event.date = this.date.toString();
-    this.eventService.update(this.pub_id, this.event).subscribe(
+    this.eventService.create(this.pub_id, this.event).subscribe(
       _ => this.location.back(),
       errors => this.error_messages = errors
     );

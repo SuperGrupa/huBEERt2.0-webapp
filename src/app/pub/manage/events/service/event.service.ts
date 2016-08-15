@@ -16,6 +16,12 @@ export class EventService {
                     .catch((error) => Observable.throw(error.json()));
   }
 
+  create(pub_id, event: Event): Observable<Event> {
+    return this.http.post(Url.pubs.events.all(pub_id), event/*, this.authService.authorizingOptions()*/)
+                    .map((res) => res.json() || { })
+                    .catch((error) => Observable.throw(error.json()));
+  }
+
   update(pub_id, event: Event): Observable<Event> {
     return this.http.put(Url.pubs.events.one(pub_id, event.id), event/*, this.authService.authorizingOptions()*/)
                     .map((res) => res.json() || { })
