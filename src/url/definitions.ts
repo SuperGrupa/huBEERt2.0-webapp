@@ -11,7 +11,10 @@ const Url = {
       all: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/offers',
       one: (pub_id: number, offer_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/offers/' + offer_id,
     },
-    events: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/events',
+    events: {
+      all: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/events',
+      one: (pub_id: number, event_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/events/' + event_id,
+    },
   },
 
   users: {

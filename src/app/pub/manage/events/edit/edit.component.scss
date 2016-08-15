@@ -1,0 +1,9 @@
+@import '../../../../common/styles/main.scss';
+
+.edit-event {
+  textarea {
+    resize: vertical;
+    max-height: 300px;
+    height: 150px;
+  }
+}
