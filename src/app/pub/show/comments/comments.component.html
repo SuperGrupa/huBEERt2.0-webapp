@@ -1,4 +1,5 @@
-<div class="comment">
+<div *ngIf="comments_number > 0" class="comment">
+  <pub-comment-new [pub_id]="pub_id" (on_new_comment)="onNewComment()"></pub-comment-new>
   <table class="table">
     <tbody>
       <tr *ngFor="let comment of active_comments">
@@ -18,4 +19,8 @@
   <pagination [total_items]="comments.length"
               [items_per_page]="PAGE_SIZE"
               [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>
+</div>
+<div *ngIf="comments_number === 0" class="text-center">
+  <h3>Nikt nie wydał jeszcze opinii, bądź pierwszy!</h3>
+  <pub-comment-new [pub_id]="pub_id" (on_new_comment)="onNewComment()"></pub-comment-new>
 </div>

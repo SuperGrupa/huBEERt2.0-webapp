@@ -1,26 +1,35 @@
-import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input, Output, EventEmitter } from '@angular/core';
 
-import { PubService } from '../../pub.service';
-import { Comment } from '../../model/comment';
-import { Pagination } from '../../../common/pagination/pagination.component';
+import { AuthService }            from '../../../user/auth/auth.service';
+import { PubService }             from '../../pub.service';
+import { Comment }                from '../../model/comment';
+import { Pagination }             from '../../../common/pagination/pagination.component';
+import { PubCommentNewComponent } from './new/new.component';
 
 @Component({
   selector: 'pub-show-comments',
   template: require('./comments.component.html'),
   styles: [require('./comments.component.scss')],
-  directives: [Pagination],
+  directives: [
+    Pagination,
+    PubCommentNewComponent
+  ],
 })
 
 export class PubShowCommentsComponent implements OnInit {
   @Input() pub_id: number;
-  comments: Comment[] = [];
-  active_comments: Comment[] = [];
+  @Input() comments_number: number;
+  @Output() on_new_comment = new EventEmitter();
+
+  comments: Comment.General[] = [];
+  active_comments: Comment.General[] = [];
   error_message: string;
   current_page: number = 1;
 
   PAGE_SIZE = 10;
 
-  constructor(private pubService: PubService) { }
+  constructor(private authService: AuthService,
+              private pubService: PubService) { }
 
   ngOnInit() {
     this.getPubComments();
@@ -40,8 +49,14 @@ export class PubShowCommentsComponent implements OnInit {
           else return 1;
         });
         this.pageChanged(1);
+        this.comments_number = this.comments.length;
       },
       error => this.error_message = <any>error
     );
+  }
+
+  onNewComment() {
+    this.on_new_comment.next(this.comments_number + 1);
+    this.getPubComments();
   }
 }

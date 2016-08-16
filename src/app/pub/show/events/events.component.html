@@ -8,5 +8,8 @@
 		<p class="list-group-item-text">
 			{{event.description}}
 		</p>
+		<p *ngIf="full_options" class="edit">
+			<a [routerLink]="['event', event.id, 'edit']"><span class="glyphicon glyphicon-pencil"></span></a>
+		</p>
 	</button>
 </div>

@@ -48,6 +48,16 @@ export class AuthService {
     return this.logged_user;
   }
 
+  ownerPubId(): number {
+    let user = this.loggedUser();
+    if (!user) {
+      return undefined;
+    }
+
+    let pub_id = user.pub_id;
+    return pub_id;
+  }
+
   authorizingOptions() {
     return new RequestOptions({
       headers: this.headers,

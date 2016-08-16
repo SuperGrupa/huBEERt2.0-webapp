@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy, Input } from '@angular/core';
+import { ROUTER_DIRECTIVES }                   from '@angular/router';
 
 import { PubService } from '../../pub.service';
 import { Event } from '../../model/event';
@@ -7,10 +8,12 @@ import { Event } from '../../model/event';
   selector: 'pub-show-events',
   template: require('./events.component.html'),
   styles: [require('./events.component.scss')],
+  directives: [ROUTER_DIRECTIVES],
 })
 
 export class PubShowEventsComponent implements OnInit {
   @Input() pub_id: number;
+  @Input() full_options: boolean = false;
   events: Event[] = [];
   error_message: string;
 

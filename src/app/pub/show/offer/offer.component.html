@@ -5,17 +5,25 @@
         <th class="col-xs-7">Piwo</th>
         <th class="col-xs-2 hidden-xs text-right">Objętość</th>
         <th class="col-xs-3 text-right">Cena</th>
+        <th *ngIf="full_options">Edytuj</th>
+        <th *ngIf="full_options">Usuń</th>
       </tr>
     </thead>
     <tbody>
-      <tr (click)="showBeerDetails(offer.beer.id)" *ngFor="let offer of active_offer">
-        <td>{{offer.beer.name}}</td>
+      <tr *ngFor="let offer of offers.slice((current_page - 1)*PAGE_SIZE, current_page*PAGE_SIZE)">
+        <td (click)="showBeerDetails(offer.beer.id)">{{offer.beer.name}}</td>
         <td class="hidden-xs text-right">{{offer.beer.volume}} l</td>
         <td class="text-right">{{offer.value | number:'.2-2'}} zł</td>
+        <td *ngIf="full_options" class="text-center">
+          <a [routerLink]="['offer', offer.id, 'edit']"><span class="glyphicon glyphicon-pencil edit" aria-hidden="true"></span></a>
+        </td>
+        <td *ngIf="full_options" class="text-center">
+          <span (click)="onDelete(offer.id)" class="glyphicon glyphicon-trash delete" aria-hidden="true"></span>
+        </td>
       </tr>
     </tbody>
   </table>
-  <pagination [total_items]="offer.length"
+  <pagination [total_items]="offers.length"
               [items_per_page]="PAGE_SIZE"
               [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>
 </div>

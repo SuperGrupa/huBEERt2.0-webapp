@@ -15,8 +15,8 @@ export class UserHomeCommentsComponent implements OnInit, OnDestroy {
   @Input() comments_number: number;
 
   error_message = {};
-  comments: Comment[] = [];
-  active_comments: Comment[] = [];
+  comments: Comment.General[] = [];
+  active_comments: Comment.General[] = [];
   current_page: number;
   subscription: Subscription;
 

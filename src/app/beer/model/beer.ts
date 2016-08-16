@@ -4,6 +4,8 @@ export namespace Beer {
     id: number;
     name: string;
     volume: number;
+
+    constructor() { }
   }
 
   export class Detail extends General {

@@ -16,6 +16,9 @@
       <li><a [routerLink]="['/login']">Zaloguj</a></li>
     </ul>
     <ul *ngIf="logged_user" class="nav navbar-nav navbar-right">
+      <li *ngIf="logged_user.pub_id">
+        <a [routerLink]="['/manage']">Zarządzaj pubem</a>
+      </li>
       <li>
         <p class="navbar-text">Zalogowany jako
           <a [routerLink]="['/home']"><strong>{{logged_user.login}}</strong></a>

@@ -1,6 +1,11 @@
 export class Event {
   id: number;
+  pub_id: number;
   name: string;
-  date: Date;
+  date: string;
   description: string;
+
+  constructor() {
+    
+  }
 }

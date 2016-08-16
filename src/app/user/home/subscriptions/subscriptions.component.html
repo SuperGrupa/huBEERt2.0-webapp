@@ -1,13 +1,13 @@
 <table *ngIf="subs_number > 0" class="table table-hover">
   <tbody>
-    <tr *ngFor="let sub of active_subscriptions"
-        (click)="goToPub(sub.pub.id)">
+    <tr *ngFor="let sub of active_subscriptions">
       <td class="col-sm-2"><div class="thumb"></div></td>
-      <td class="col-xs-6 col-sm-5">
+      <td class="col-xs-6 col-sm-7" (click)="goToPub(sub.pub.id)">
         <div><h3>{{sub.pub.name}}</h3></div>
-      </td>
-      <td class="col-xs-6 col-sm-5">
         <div class="address">{{sub.pub.city}}, {{sub.pub.address}}</div>
+      </td>
+      <td class="col-xs-6 col-sm-3">
+        <button class="btn btn-danger btn-sm" (click)="unsubscribe(sub.id)">Anuluj subskrypcję</button>
       </td>
     </tr>
   </tbody>

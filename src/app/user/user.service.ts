@@ -21,7 +21,7 @@ export class UserService {
                     .catch((error) => Observable.throw(error.json()));
   }
 
-  getComments(): Observable<Comment[]> {
+  getComments(): Observable<Comment.General[]> {
     let user_id = this.authService.loggedUser().id;
     return this.http.get(Url.users.comments(user_id), this.authService.authorizingOptions())
                     .map((res) => res.json() || { })
@@ -30,7 +30,7 @@ export class UserService {
 
   getSubscriptions(): Observable<Subscription[]> {
     let user_id = this.authService.loggedUser().id;
-    return this.http.get(Url.users.subscriptions(user_id), this.authService.authorizingOptions())
+    return this.http.get(Url.users.subscriptions.all(user_id), this.authService.authorizingOptions())
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }
@@ -50,6 +50,20 @@ export class UserService {
 
   delete(user_id: number): Observable<User.General> {
     return this.http.delete(Url.users.one(user_id), this.authService.authorizingOptions())
+                    .map((res) => res.json() || { })
+                    .catch((error) => Observable.throw(error.json()));
+  }
+
+  subscribe(pub_id: number): Observable<any> {
+    let user = this.authService.loggedUser();
+    return this.http.post(Url.users.subscriptions.all(user.id), { pub_id, user_id: user.id }, this.authService.authorizingOptions())
+                    .map((res) => res.json() || { })
+                    .catch((error) => Observable.throw(error.json()));
+  }
+
+  unsubscribe(sub_id: number) {
+    let user = this.authService.loggedUser();
+    return this.http.delete(Url.users.subscriptions.one(user.id, sub_id), this.authService.authorizingOptions())
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }

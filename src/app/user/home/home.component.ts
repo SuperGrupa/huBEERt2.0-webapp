@@ -20,7 +20,6 @@ import { UserHomeSettingsComponent }      from './settings/settings.component';
     UserHomeNotificationsComponent,
     UserHomeSettingsComponent,
   ],
-  providers: [UserService],
 })
 
 export class UserHomeComponent implements OnInit, OnDestroy {
@@ -56,5 +55,9 @@ export class UserHomeComponent implements OnInit, OnDestroy {
 
   decNotifications(unread_notifications: number) {
     this.user.notifications = unread_notifications;
+  }
+
+  decSubscriptions(sub_number: number) {
+    this.user.subscriptions = sub_number;
   }
 }

@@ -17,6 +17,8 @@ export namespace User {
   export class Logged {
     id: number;
     login: string;
+    role: string;
+    pub_id: number;         // istotne dla właścicieli pubów
     token: Token;
   }
 

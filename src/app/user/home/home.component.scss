@@ -3,22 +3,4 @@
 .home {
   @include yellow-frame();
   padding-bottom: 15px;
-
-  .nav {
-    margin-top: 10px;
-    border-bottom: 1px solid $border-grey;
-
-    li {
-      padding-left: 10px;
-      padding-right: 10px;
-
-      a {
-        padding: 10px;
-      }
-    }
-  }
-
-  .nav-pills > li+li {
-    margin-left: 0;
-  }
 }

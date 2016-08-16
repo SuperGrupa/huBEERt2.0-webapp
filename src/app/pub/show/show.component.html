@@ -1,13 +1,14 @@
 <div *ngIf="pub" class="container pub-show">
   <div class="row pub-header">
-    <div class="name col-xs-12 col-sm-9">
+    <div class="name col-xs-12 col-sm-8">
       <h1>{{pub.name}}</h1>
     </div>
-    <div class="col-sm-1 hidden-xs">
-      <h2 class="pull-right">{{ (pub.rating | number: '.1-1') || "brak ocen" }}</h2>
+    <div *ngIf="loggedUser()" class="col-xs-10 col-xs-offset-1 col-sm-2 col-sm-offset-0">
+      <button *ngIf="!is_subscribed" (click)="subscribe()" class="subscribe btn pull-right" type="button">Subskrybuj</button>
+      <button *ngIf="is_subscribed" class="subscribe btn pull-right disabled" type="button">Zasubskrybowano</button>
     </div>
-    <div class="col-xs-10 col-xs-offset-1 col-sm-2 col-sm-offset-0">
-      <button *ngIf="currentUser()" class="subscribe btn pull-right" type="button">Subskrybuj</button>
+    <div class="col-sm-2 hidden-xs">
+      <h2 class="pull-right">{{ (pub.rating | number: '.1-1') || "brak ocen" }}</h2>
     </div>
   </div>
   <div class="row pub-details">
@@ -16,7 +17,7 @@
       <div class="address-and-contact">
         <div class="row address">
           <p><strong>Adres:</strong></p>
-          <p>{{pub.city}}, {{pub.address}}</p>
+          <p>{{pub.city.name}}, {{pub.address}}</p>
         </div>
         <div class="row email">
           <p><strong>Email:</strong></p>
@@ -36,15 +37,15 @@
             <a (click)="show('offer')">Oferta</a>
           </li>
           <li role="presentation" [class.active]="section === 'events'">
-            <a (click)="show('events')">Wydarzenia ({{ pub.events }})</a>
+            <a (click)="show('events')">Wydarzenia <span class="badge">{{ pub.events }}</span></a>
           </li>
           <li role="presentation" [class.active]="section === 'comments'">
-            <a (click)="show('comments')">Opinie ({{ pub.comments }})</a>
+            <a (click)="show('comments')">Opinie <span class="badge">{{ pub.comments }}</span></a>
           </li>
         </ul>
-        <pub-show-offer    *ngIf="section === 'offer'"    [pub_id]="pub.id"></pub-show-offer>
+        <pub-show-offer    *ngIf="section === 'offer'"    [(offers)]="offers"></pub-show-offer>
         <pub-show-events   *ngIf="section === 'events'"   [pub_id]="pub.id"></pub-show-events>
-        <pub-show-comments *ngIf="section === 'comments'" [pub_id]="pub.id"></pub-show-comments>
+        <pub-show-comments *ngIf="section === 'comments'" [pub_id]="pub.id" [comments_number]="pub.comments" (on_new_comment)="onNewComment($event)"></pub-show-comments>
       </div>
     </div>
   </div>

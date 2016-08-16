@@ -9,6 +9,12 @@ import { Beer } from './model/beer';
 export class BeerService {
   constructor (private http: Http) { }
 
+  getAll(): Observable<Beer.General[]> {
+    return this.http.get(Url.beers.all())
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
   getBeer(id: number): Observable<Beer.Detail> {
     return this.http.get(Url.beers.one(id))
                     .map(this.extractData)
