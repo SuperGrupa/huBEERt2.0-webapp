@@ -28,13 +28,12 @@ export class PubManageComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    // TODO przywrócić kontrolę
-    // let pub_id = this.authService.ownerPubId();
-    // if (!pub_id) {
-    //   this.router.navigate(['/login']);
-    //   return;
-    // }
-    let pub_id = 1;
+    let pub_id = this.authService.ownerPubId();
+    if (!pub_id) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     this.pubService.getPub(pub_id).subscribe(
       pub => this.pub = pub
     );

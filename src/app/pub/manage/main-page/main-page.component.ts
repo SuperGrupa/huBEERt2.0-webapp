@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router }                   from '@angular/router';
 
 import { Pub }            from '../../model/pub';
 import { City }           from '../../../search/model/city';
@@ -24,15 +25,16 @@ export class PubManageMainPageComponent implements OnInit {
 
   constructor(private authService: AuthService,
               private pubService: PubService,
-              private cityService: CityService) { }
+              private cityService: CityService,
+              private router: Router) { }
 
   ngOnInit() {
-    // TODO
-    // this.pub.id = this.authService.ownerPubId();
-    // if (!this.pub_id) {
-    //   this.router.navigate(['/login']);
-    //   return;
-    // }
+    this.pub_id = this.authService.ownerPubId();
+    if (!this.pub_id) {
+      this.router.navigate(['/login']);
+      return;
+    }
+
     this.pubService.getPub(this.pub_id).subscribe(
       pub => this.pub = pub
     );

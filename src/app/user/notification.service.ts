@@ -12,10 +12,9 @@ export class NotificationService {
                private authService: AuthService) { }
 
   markAsRead(not_id: number): Observable<Notification.Detail> {
-    //let user_id = this.authService.loggedUser().id;
-    let user_id = 1;
+    let user_id = this.authService.loggedUser().id;
     let update = new Notification.Update({ read: true });
-    return this.http.put(Url.users.notifications.one(user_id, not_id), update/*, this.authService.authorizingOptions()*/)
+    return this.http.put(Url.users.notifications.one(user_id, not_id), update, this.authService.authorizingOptions())
                     .map((res) => res.json() || { })
                     .catch((error) => Observable.throw(error.json()));
   }

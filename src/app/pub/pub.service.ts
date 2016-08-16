@@ -52,7 +52,7 @@ export class PubService {
   update(pub: Pub.Detail): Observable<Pub.Detail> {
     return this.http.put(Url.pubs.one(pub.id),
                         { name: pub.name, description: pub.description, phone: pub.phone, email: pub.email, city_id: pub.city.id, address: pub.address }
-                        /*, this.authService.authorizingOptions()*/)
+                        , this.authService.authorizingOptions())
                     .map(this.extractData)
                     .catch(this.handleError);
   }
