@@ -1,0 +1,10 @@
+.list-table {
+  .pub-name {
+    cursor: pointer;
+  }
+
+  td span {
+    &.edit { color: green; }
+    &.delete { color: red; }
+  }
+}

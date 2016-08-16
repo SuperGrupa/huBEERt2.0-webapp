@@ -1,0 +1,16 @@
+<div class="container admin-panel">
+  <div class="row">
+    <div class="sections">
+      <ul class="nav nav-pills nav-stacked col-xs-12 col-sm-3">
+        <li role="presentation" [class.active]="section === 'pubs'">
+          <a (click)="show('pubs')">Puby</a>
+        </li>
+        <li role="presentation" [class.active]="section === 'beers'">
+          <a (click)="show('beers')">Piwa</a>
+        </li>
+      </ul>
+      <admin-pubs  *ngIf="section === 'pubs'"  class="col-xs-12 col-sm-9"></admin-pubs>
+      <admin-beers *ngIf="section === 'beers'" class="col-xs-12 col-sm-9"></admin-beers>
+    </div>
+  </div>
+</div>

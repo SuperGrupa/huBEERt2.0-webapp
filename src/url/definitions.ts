@@ -2,7 +2,17 @@ import Config from 'config';
 
 const Url = {
   pubs: {
-    all: (page: number, filter: string, city: string) => Config.server.__url() + 'pubs?q=' + filter + '&city=' + city + '&page=' + page,
+    all: (page: number, filter: string = '', city: string = '') => {
+      let q = '';
+      if (filter != '') {
+        q = '&q=' + filter;
+      }
+      let cityParam = '';
+      if (city != '') {
+        cityParam = '&city=' + city;
+      }
+      return Config.server.__url() + 'pubs?page=' + page + cityParam + filter;
+    },
     one: (id: number) => Config.server.__url() + 'pubs/' + id,
     comments: {
       all: (pub_id: number) => Config.server.__url() + 'pubs/' + pub_id + '/comments',

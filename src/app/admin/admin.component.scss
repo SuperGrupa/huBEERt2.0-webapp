@@ -1,0 +1,5 @@
+@import '../common/styles/main';
+
+.admin-panel {
+  @include yellow-frame();
+}

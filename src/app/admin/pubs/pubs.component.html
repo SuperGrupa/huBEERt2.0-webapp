@@ -1,0 +1,15 @@
+<table class="list-table table table-hover">
+  <tbody>
+    <tr *ngFor="let pub of pubs">
+      <td class="col-xs-10 col-sm-5" (click)="goToPub(pub.id)">
+        <div class="pub-name">{{pub.name}}</div>
+      </td>
+      <td class="hidden-xs col-sm-5 address">{{pub.address}}</td>
+      <td class="col-xs-1 col-sm-1"><span class="glyphicon glyphicon-pencil edit"></span></td>
+      <td class="col-xs-1 col-sm-1"><span class="glyphicon glyphicon-trash delete"></span></td>
+    </tr>
+  </tbody>
+</table>
+<pagination [total_items]="total_pubs"
+            [items_per_page]="30"
+            [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>

@@ -13,7 +13,7 @@ export class PubService {
   constructor (private authService: AuthService,
                private http: Http) { }
 
-  getPubs(page: number, filter: string, city: string): Observable<Pub.List> {
+  getPubs(page: number, filter: string = '', city: string = ''): Observable<Pub.List> {
     return this.http.get(Url.pubs.all(page, filter, city))
                     .map(this.extractData)
                     .catch(this.handleError);
