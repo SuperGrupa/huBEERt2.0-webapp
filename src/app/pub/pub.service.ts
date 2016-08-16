@@ -44,8 +44,15 @@ export class PubService {
   }
 
   addComment(comment: Comment.New): Observable<Comment.New> {
-    let user = this.authService.loggedUser();
     return this.http.post(Url.pubs.comments.all(comment.pub_id), comment, this.authService.authorizingOptions())
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  update(pub: Pub.Detail): Observable<Pub.Detail> {
+    return this.http.put(Url.pubs.one(pub.id),
+                        { name: pub.name, description: pub.description, phone: pub.phone, email: pub.email, city_id: pub.city.id, address: pub.address }
+                        /*, this.authService.authorizingOptions()*/)
                     .map(this.extractData)
                     .catch(this.handleError);
   }

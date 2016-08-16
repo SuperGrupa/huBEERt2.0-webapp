@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router }            from '@angular/router';
 
-import { Pub }                      from '../model/pub';
-import { AuthService }              from '../../user/auth/auth.service';
-import { PubService }               from '../pub.service';
-import { PubManageOffersComponent } from './offers/offers.component';
-import { PubManageEventsComponent } from './events/events.component';
+import { Pub }                        from '../model/pub';
+import { AuthService }                from '../../user/auth/auth.service';
+import { PubService }                 from '../pub.service';
+import { PubManageOffersComponent }   from './offers/offers.component';
+import { PubManageEventsComponent }   from './events/events.component';
+import { PubManageMainPageComponent } from './main-page/main-page.component';
 
 @Component({
   selector: 'pub-manage',
@@ -14,6 +15,7 @@ import { PubManageEventsComponent } from './events/events.component';
   directives: [
     PubManageOffersComponent,
     PubManageEventsComponent,
+    PubManageMainPageComponent,
   ],
 })
 

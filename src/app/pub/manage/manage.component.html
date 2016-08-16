@@ -20,7 +20,7 @@
       </ul>
       <pub-manage-offers    *ngIf="section === 'offers'" [pub_id]="pub.id"></pub-manage-offers>
       <pub-manage-events    *ngIf="section === 'events'" [pub_id]="pub.id"></pub-manage-events>
-      <pub-manage-main-page *ngIf="section === 'main'"   ></pub-manage-main-page>
+      <pub-manage-main-page *ngIf="section === 'main'"   [pub_id]="pub.id"></pub-manage-main-page>
     </div>
   </div>
 </div>

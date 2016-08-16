@@ -1,3 +1,5 @@
+import { City } from '../../search/model/city';
+
 export namespace Pub {
 
   // Pojedynczy wpis na liście wyników wyszukiwania
@@ -14,7 +16,7 @@ export namespace Pub {
     description: string;
     email: string;
     phone: string;
-    city: string;
+    city: City;
     events: number;
     offers: number;
   }
