@@ -4,6 +4,8 @@
   }
 
   td span {
+    cursor: pointer;
+
     &.edit { color: green; }
     &.delete { color: red; }
   }

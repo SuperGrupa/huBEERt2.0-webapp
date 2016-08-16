@@ -57,6 +57,12 @@ export class PubService {
                     .catch(this.handleError);
   }
 
+  delete(pub_id: number): Observable<Pub.Detail> {
+    return this.http.delete(Url.pubs.one(pub_id), this.authService.authorizingOptions())
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
   private extractData(res: Response) {
     let body = res.json();
     return body || { };

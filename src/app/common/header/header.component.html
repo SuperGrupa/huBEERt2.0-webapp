@@ -16,6 +16,9 @@
       <li><a [routerLink]="['/login']">Zaloguj</a></li>
     </ul>
     <ul *ngIf="logged_user" class="nav navbar-nav navbar-right">
+      <li *ngIf="logged_user.role === 'admin'">
+        <a [routerLink]="['/admin']">Panel admina</a>
+      </li>
       <li *ngIf="logged_user.pub_id">
         <a [routerLink]="['/manage']">Zarządzaj pubem</a>
       </li>

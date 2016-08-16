@@ -18,6 +18,7 @@ export class AdminPubsComponent implements OnInit {
   pubs: Pub.General[] = [];
   total_pubs: number = 0;
   current_page: number = 1;
+  deleting_pub: number;
 
   constructor(private pubService: PubService,
               private router: Router) { }
@@ -42,5 +43,18 @@ export class AdminPubsComponent implements OnInit {
 
   goToPub(pub_id: number) {
     this.router.navigate(['/pub', pub_id]);
+  }
+
+  onDeleteClick(pub_id: number) {
+    this.deleting_pub = pub_id;
+  }
+
+  onConfirmationDelete() {
+    this.pubService.delete(this.deleting_pub).subscribe(
+      _ => {
+        $('#confirm').modal('toggle');
+        this.pubs = this.pubs.filter(pub => pub.id !== this.deleting_pub);
+      }
+    );
   }
 }
