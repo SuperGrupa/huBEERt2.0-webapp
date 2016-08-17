@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router }            from '@angular/router';
 import { Location }          from '@angular/common';
 
 import { Pub }            from '../../../pub/model/pub';
 import { City }           from '../../../search/model/city';
+import { AuthService }    from '../../../user/auth/auth.service';
 import { CityService }    from '../../../search/service/city.service';
 import { PubService }     from '../../../pub/pub.service';
 import { EmailValidator } from '../../../common/validators/email.validator';
@@ -23,9 +25,16 @@ export class AdminPubsNewComponent implements OnInit {
 
   constructor(private cityService: CityService,
               private pubService: PubService,
+              private authService: AuthService,
+              private router: Router,
               private location: Location) { }
 
   ngOnInit() {
+    let user = this.authService.loggedUser();
+    if (!user || user.role !== 'admin') {
+      this.router.navigate(['/search']);
+    }
+
     this.cityService.getCities().subscribe(
       cities => {
         this.cities = cities;

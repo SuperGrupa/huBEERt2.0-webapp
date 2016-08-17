@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router }            from '@angular/router';
 
+import { AuthService }         from '../user/auth/auth.service';
 import { AdminPubsComponent }  from './pubs/pubs.component';
 import { AdminBeersComponent } from './beers/beers.component';
 
@@ -13,8 +15,18 @@ import { AdminBeersComponent } from './beers/beers.component';
   ],
 })
 
-export class AdminComponent {
+export class AdminComponent implements OnInit {
   section: string = 'pubs';
+
+  constructor(private authService: AuthService,
+              private router: Router) { }
+
+  ngOnInit() {
+    let user = this.authService.loggedUser();
+    if (!user || user.role !== 'admin') {
+      this.router.navigate(['/search']);
+    }
+  }
 
   show(what: string) {
     this.section = what;

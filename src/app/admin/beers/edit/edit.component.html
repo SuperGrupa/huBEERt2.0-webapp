@@ -7,21 +7,36 @@
         <label for="name">Nazwa piwa</label>
         <input [(ngModel)]="beer.name" name="name" class="form-control" required maxlength="30">
       </div>
+      <div *ngIf="error_messages.name">
+        Nazwa {{error_messages.name}}
+      </div>
       <div class="form-group">
         <label for="description">Opis piwa</label>
         <textarea [(ngModel)]="beer.description" name="description" class="form-control" maxlength="300"></textarea>
+      </div>
+      <div *ngIf="error_messages.description">
+        Opis {{error_messages.description}}
       </div>
       <div class="form-group">
         <label for="alcohol">% zaw. alkoholu</label>
         <input [(ngModel)]="beer.alcohol" type="number" name="alcohol" class="form-control" min="0.0" max="100.0" step="0.1" required>
       </div>
+      <div *ngIf="error_messages.alcohol">
+        Zawartość % alkoholu {{error_messages.alcohol}}
+      </div>
       <div class="form-group">
         <label for="volume">Objętość butelki (w litrach)</label>
         <input [(ngModel)]="beer.volume" type="number" name="volume" class="form-control" min="0.0" step="0.01" required>
       </div>
+      <div *ngIf="error_messages.volume">
+        Objętość butelki {{error_messages.volume}}
+      </div>
       <div class="form-group">
         <label for="extract">Ekstrakt</label>
         <input [(ngModel)]="beer.extract" type="number" name="extract" class="form-control" min="0.0" step="0.1" max="100.0">
+      </div>
+      <div *ngIf="error_messages.extract">
+        Ekstrakt {{error_messages.extract}}
       </div>
       <button type="submit" class="btn" [disabled]="!editForm.form.valid">Zapisz zmiany</button>
       <button type="button" class="btn btn-default" (click)="goBack()">Anuluj</button>

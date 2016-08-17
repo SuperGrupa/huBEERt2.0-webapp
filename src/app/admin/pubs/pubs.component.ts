@@ -1,9 +1,10 @@
 import { Component, OnInit }         from '@angular/core';
 import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
-import { Pub }        from '../../pub/model/pub';
-import { PubService } from '../../pub/pub.service';
-import { Pagination } from '../../common/pagination/pagination.component';
+import { AuthService } from '../../user/auth/auth.service';
+import { Pub }         from '../../pub/model/pub';
+import { PubService }  from '../../pub/pub.service';
+import { Pagination }  from '../../common/pagination/pagination.component';
 
 @Component({
   selector: 'admin-pubs',
@@ -22,9 +23,15 @@ export class AdminPubsComponent implements OnInit {
   deleting_pub: number;
 
   constructor(private pubService: PubService,
+              private authService: AuthService,
               private router: Router) { }
 
   ngOnInit() {
+    let user = this.authService.loggedUser();
+    if (!user || user.role !== 'admin') {
+      this.router.navigate(['/search']);
+    }
+
     this.getPubs();
   }
 
