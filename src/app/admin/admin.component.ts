@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
-import { AdminPubsComponent } from './pubs/pubs.component';
+import { AdminPubsComponent }  from './pubs/pubs.component';
+import { AdminBeersComponent } from './beers/beers.component';
 
 @Component({
   selector: 'admin',
@@ -8,6 +9,7 @@ import { AdminPubsComponent } from './pubs/pubs.component';
   styles: [require('./admin.component.scss')],
   directives: [
     AdminPubsComponent,
+    AdminBeersComponent,
   ],
 })
 

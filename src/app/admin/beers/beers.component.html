@@ -1,0 +1,24 @@
+<div class="beer-list">
+  <a [routerLink]="['beers', 'new']" type="button" name="button" class="btn create-beer">Dodaj nowe piwo</a>
+  <table class="table table-hover">
+    <thead>
+      <th class="col-xs-10 col-sm-5">Nazwa</th>
+      <th class="hidden-xs col-sm-5 text-center">Objętość (L)</th>
+      <th class="col-xs-1 col-sm-1 text-center">Edycja</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let beer of beers">
+        <td class="col-xs-10 col-sm-5" (click)="goToBeer(beer.id)">
+          <div class="beer-name">{{beer.name}}</div>
+        </td>
+        <td class="hidden-xs col-sm-5 volume text-center">{{beer.volume}}</td>
+        <td class="col-xs-1 col-sm-1 text-center">
+          <a [routerLink]="['beer', beer.id, 'edit']"><span class="glyphicon glyphicon-pencil edit"></span></a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination [total_items]="beers.length"
+              [items_per_page]="PAGE_SIZE"
+              [current_page]="current_page" (on_click)="pageChanged($event)">
+  </pagination>

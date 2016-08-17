@@ -1,0 +1,17 @@
+@import '../../common/styles/main';
+
+.beer-list {
+  .beer-name {
+    cursor: pointer;
+  }
+
+  td span {
+    cursor: pointer;
+
+    &.edit { color: green; }
+  }
+
+  .create-beer {
+    margin: 10px 0;
+  }
+}
