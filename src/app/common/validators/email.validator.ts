@@ -5,7 +5,7 @@ function validateEmailFactory() {
   return (c: FormControl) => {
     let EMAIL_REGEXP = /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i;
 
-    return EMAIL_REGEXP.test(c.value) ? null : { invalidFormat: true };
+    return EMAIL_REGEXP.test(c.value) || !c.value ? null : { invalidFormat: true };
   };
 }
 

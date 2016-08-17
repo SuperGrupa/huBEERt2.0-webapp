@@ -1,38 +1,42 @@
-<table class="list-table table table-hover">
-  <tbody>
-    <tr *ngFor="let pub of pubs">
-      <td class="col-xs-10 col-sm-5" (click)="goToPub(pub.id)">
-        <div class="pub-name">{{pub.name}}</div>
-      </td>
-      <td class="hidden-xs col-sm-5 address">{{pub.address}}</td>
-      <td class="col-xs-1 col-sm-1"><span class="glyphicon glyphicon-pencil edit"></span></td>
-      <td class="col-xs-1 col-sm-1">
-        <span (click)="onDeleteClick(pub.id)" data-toggle="modal" data-target="#confirm" class="glyphicon glyphicon-trash delete"></span>
-      </td>
-    </tr>
-  </tbody>
-</table>
-<pagination [total_items]="total_pubs"
-            [items_per_page]="30"
-            [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>
+<div class="pub-list">
+  <a [routerLink]="['pubs', 'new']" type="button" name="button" class="btn create-pub">Stwórz nowy pub</a>
+  <table class="table table-hover">
+    <tbody>
+      <tr *ngFor="let pub of pubs">
+        <td class="col-xs-10 col-sm-5" (click)="goToPub(pub.id)">
+          <div class="pub-name">{{pub.name}}</div>
+        </td>
+        <td class="hidden-xs col-sm-5 address">{{pub.address}}</td>
+        <td class="col-xs-1 col-sm-1"><span class="glyphicon glyphicon-pencil edit"></span></td>
+        <td class="col-xs-1 col-sm-1">
+          <span (click)="onDeleteClick(pub.id)" data-toggle="modal" data-target="#confirm" class="glyphicon glyphicon-trash delete"></span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <pagination [total_items]="total_pubs"
+              [items_per_page]="30"
+              [current_page]="current_page" (on_click)="pageChanged($event)">
+  </pagination>
 
-<div class="modal fade" id="confirm">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" name="button">&times;</button>
-        <h4>Ostrzeżenie</h4>
+  <div class="modal fade" id="confirm">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" name="button">&times;</button>
+          <h4>Ostrzeżenie</h4>
+        </div>
+        <div class="modal-body">
+          <p>Czy na pewno usunąć pub z aplikacji (pub nie będzie widoczny dla użytkowników, lecz wszystkie informacje o nim zostaną zachowane)?</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">Anuluj</button>
+          <button type="button" class="btn btn-danger" name="confirm"
+          (click)="onConfirmationDelete()"
+          >
+          Usuń
+        </button>
       </div>
-      <div class="modal-body">
-        <p>Czy na pewno usunąć pub z aplikacji (pub nie będzie widoczny dla użytkowników, lecz wszystkie informacje o nim zostaną zachowane)?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal" name="cancel">Anuluj</button>
-        <button type="button" class="btn btn-danger" name="confirm"
-        (click)="onConfirmationDelete()"
-        >
-        Usuń
-      </button>
     </div>
   </div>
 </div>

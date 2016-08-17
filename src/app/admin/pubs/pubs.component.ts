@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router }            from '@angular/router';
+import { Component, OnInit }         from '@angular/core';
+import { Router, ROUTER_DIRECTIVES } from '@angular/router';
 
 import { Pub }        from '../../pub/model/pub';
 import { PubService } from '../../pub/pub.service';
@@ -11,6 +11,7 @@ import { Pagination } from '../../common/pagination/pagination.component';
   styles: [require('./pubs.component.scss')],
   directives: [
     Pagination,
+    ROUTER_DIRECTIVES,
   ],
 })
 

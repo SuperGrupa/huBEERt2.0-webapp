@@ -19,6 +19,11 @@ export namespace Pub {
     city: City;
     events: number;
     offers: number;
+
+    constructor() {
+      super();
+      this.city = new City();
+    }
   }
 
   // Lista wyników wyszukiwania

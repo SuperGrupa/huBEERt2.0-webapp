@@ -1,4 +1,6 @@
-.list-table {
+@import '../../common/styles/main';
+
+.pub-list {
   .pub-name {
     cursor: pointer;
   }
@@ -8,5 +10,9 @@
 
     &.edit { color: green; }
     &.delete { color: red; }
+  }
+
+  .create-pub {
+    margin: 10px 0;
   }
 }

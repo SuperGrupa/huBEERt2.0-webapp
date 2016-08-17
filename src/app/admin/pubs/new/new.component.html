@@ -1,0 +1,40 @@
+<div *ngIf="pub" class="container new-pub">
+  <div class="row">
+    <form (ngSubmit)="onSubmit()" #newForm="ngForm"
+          class="form col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3"
+    >
+      <div *ngIf="saved" class="alert alert-success">
+        Zmiany zostały zapisane pomyślnie
+      </div>
+      <div class="form-group">
+        <label for="name">Nazwa pubu</label>
+        <input [(ngModel)]="pub.name" name="name" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="city">Miasto</label>
+        <select class="form-control" name="city" [(ngModel)]="pub.city.id">
+          <option *ngFor="let city of cities" [value]="city.id">
+            {{city.name}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="address">Adres pubu</label>
+        <input [(ngModel)]="pub.address" name="address" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="description">Opis na stronę główną</label>
+        <textarea [(ngModel)]="pub.description" name="description" class="form-control" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input [(ngModel)]="pub.email" name="email" class="form-control" validateEmail>
+      </div>
+      <div class="form-group">
+        <label for="phone">Telefon</label>
+        <input [(ngModel)]="pub.phone" name="phone" class="form-control" pattern="[0-9]{7,}">
+      </div>
+      <button type="submit" class="btn col-xs-12" [disabled]="!newForm.form.valid">Stwórz pub</button>
+    </form>
+  </div>
+</div>

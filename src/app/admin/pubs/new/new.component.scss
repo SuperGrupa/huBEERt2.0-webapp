@@ -1,0 +1,9 @@
+@import '../../../common/styles/main.scss';
+
+.new-pub {
+  textarea {
+    resize: vertical;
+    min-height: 100px;
+    max-height: 300px;
+  }
+}

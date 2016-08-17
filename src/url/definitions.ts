@@ -2,7 +2,8 @@ import Config from 'config';
 
 const Url = {
   pubs: {
-    all: (page: number, filter: string = '', city: string = '') => {
+    all: () => Config.server.__url() + 'pubs',
+    search: (page: number, filter: string = '', city: string = '') => {
       let q = '';
       if (filter != '') {
         q = '&q=' + filter;

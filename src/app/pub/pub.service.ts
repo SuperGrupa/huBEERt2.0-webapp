@@ -14,7 +14,7 @@ export class PubService {
                private http: Http) { }
 
   getPubs(page: number, filter: string = '', city: string = ''): Observable<Pub.List> {
-    return this.http.get(Url.pubs.all(page, filter, city))
+    return this.http.get(Url.pubs.search(page, filter, city))
                     .map(this.extractData)
                     .catch(this.handleError);
   }
@@ -45,6 +45,13 @@ export class PubService {
 
   addComment(comment: Comment.New): Observable<Comment.New> {
     return this.http.post(Url.pubs.comments.all(comment.pub_id), comment, this.authService.authorizingOptions())
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  create(pub: Pub.Detail): Observable<Pub.Detail> {
+    return this.http.post(Url.pubs.all(), { name: pub.name, description: pub.description, phone: pub.phone, email: pub.email, city_id: pub.city.id, address: pub.address }
+                        , this.authService.authorizingOptions())
                     .map(this.extractData)
                     .catch(this.handleError);
   }
