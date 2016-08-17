@@ -7,7 +7,7 @@
       <th class="col-xs-1 col-sm-1 text-center">Edycja</th>
     </thead>
     <tbody>
-      <tr *ngFor="let beer of beers">
+      <tr *ngFor="let beer of active_beers">
         <td class="col-xs-10 col-sm-5" (click)="goToBeer(beer.id)">
           <div class="beer-name">{{beer.name}}</div>
         </td>
