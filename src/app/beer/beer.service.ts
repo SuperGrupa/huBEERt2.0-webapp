@@ -1,13 +1,15 @@
 import { Injectable }     from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable }     from 'rxjs/Observable';
+import { AuthService }    from '../user/auth/auth.service';
 import Url from 'urls';
 
 import { Beer } from './model/beer';
 
 @Injectable()
 export class BeerService {
-  constructor (private http: Http) { }
+  constructor (private authService: AuthService,
+               private http: Http) { }
 
   getAll(): Observable<Beer.General[]> {
     return this.http.get(Url.beers.all())
@@ -17,6 +19,18 @@ export class BeerService {
 
   getBeer(id: number): Observable<Beer.Detail> {
     return this.http.get(Url.beers.one(id))
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  create(beer: Beer.Detail): Observable<Beer.Detail> {
+    return this.http.post(Url.beers.all(), beer, this.authService.authorizingOptions())
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
+  update(beer: Beer.Detail): Observable<Beer.Detail> {
+    return this.http.put(Url.beers.one(beer.id), beer, this.authService.authorizingOptions())
                     .map(this.extractData)
                     .catch(this.handleError);
   }

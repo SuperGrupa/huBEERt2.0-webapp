@@ -12,11 +12,14 @@
   </div>
   <div class="row">
     <p class="col-xs-4 text-right">Ekstrakt:</p>
-    <p class="col-xs-8"><strong>{{beer.extract | number: '.2-2'}}%</strong></p>
+    <p class="col-xs-8">
+      <strong *ngIf="beer.extract !== 0">{{beer.extract | number: '.2-2'}}%</strong>
+      <strong *ngIf="beer.extract === 0">brak informacji</strong>
+    </p>
   </div>
   <div class="row">
     <p class="col-xs-4 text-right">Objętość:</p>
-    <p class="col-xs-8"><strong>{{beer.volume | number: '.1-1'}} l</strong></p>
+    <p class="col-xs-8"><strong>{{beer.volume | number: '.2-2'}} l</strong></p>
   </div>
   <div class="row">
     <p class="col-xs-4 text-right">Charakterystyka:</p>
