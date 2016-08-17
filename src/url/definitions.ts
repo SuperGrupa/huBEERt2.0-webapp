@@ -12,7 +12,7 @@ const Url = {
       if (city != '') {
         cityParam = '&city=' + city;
       }
-      return Config.server.__url() + 'pubs?page=' + page + cityParam + filter;
+      return Config.server.__url() + 'pubs?page=' + page + cityParam + q;
     },
     one: (id: number) => Config.server.__url() + 'pubs/' + id,
     comments: {

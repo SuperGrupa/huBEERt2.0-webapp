@@ -41,7 +41,7 @@ export class AdminPubsComponent implements OnInit {
   }
 
   getPubs() {
-    this.pubService.getPubs(this.current_page).subscribe(
+    this.pubService.getAllPubs(this.current_page).subscribe(
       data => {
         this.pubs = data.pubs;
         this.total_pubs = data.total_pubs;

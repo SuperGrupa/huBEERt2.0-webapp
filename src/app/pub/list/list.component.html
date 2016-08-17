@@ -1,8 +1,8 @@
 <div class="container pub-list">
-  <div class="row list-header text-center">
+  <div *ngIf="total_pubs > 0" class="row list-header text-center">
     <h2>Wyniki wyszukiwania</h2>
   </div>
-  <div class="row">
+  <div *ngIf="total_pubs > 0" class="row">
     <table class="list-table table table-hover">
       <tbody>
         <tr *ngFor="let pub of pubs"
@@ -22,5 +22,8 @@
     <pagination [total_items]="total_pubs"
                 [items_per_page]="10"
                 [current_page]="current_page" (on_click)="pageChanged($event)"></pagination>
+  </div>
+  <div *ngIf="total_pubs === 0" class="text-center">
+    <h3>Niestety, brak wyników. Spróbuj z innym zapytaniem</h3>
   </div>
 </div>

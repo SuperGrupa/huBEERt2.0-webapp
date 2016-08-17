@@ -19,6 +19,12 @@ export class PubService {
                     .catch(this.handleError);
   }
 
+  getAllPubs(page: number): Observable<Pub.List> {
+    return this.http.get(Url.pubs.search(page), this.authService.authorizingOptions())
+                    .map(this.extractData)
+                    .catch(this.handleError);
+  }
+
   getPub(id: number): Observable<Pub.Detail> {
     return this.http.get(Url.pubs.one(id))
                     .map(this.extractData)
